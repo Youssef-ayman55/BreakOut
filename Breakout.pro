@@ -14,6 +14,7 @@ SOURCES += \
     mainwindow.cpp
 
 HEADERS += \
+    global.h \
     levels.h \
     mainwindow.h
 
