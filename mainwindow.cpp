@@ -17,7 +17,7 @@ MainWindow::~MainWindow()
 void MainWindow::on_new_game_clicked()
 {
     level = new levels;
-    QObject::connect(level,&levels::back,this, &MainWindow::reset);
+    QObject::connect(level,&levels::back,this,&MainWindow::reset);
     setCentralWidget(level);
 }
 void MainWindow::reset(){

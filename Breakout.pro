@@ -11,12 +11,14 @@ CONFIG += c++17
 SOURCES += \
     levels.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    slider.cpp
 
 HEADERS += \
     global.h \
     levels.h \
-    mainwindow.h
+    mainwindow.h \
+    slider.h
 
 FORMS += \
     levels.ui \
