@@ -18,10 +18,36 @@ void MainWindow::on_new_game_clicked()
 {
     level = new levels;
     QObject::connect(level,&levels::back,this,&MainWindow::reset);
+    QObject::connect(level,&levels::level1,this,&MainWindow::startlevel1);
+    QObject::connect(level,&levels::level2,this,&MainWindow::startlevel2);
+    QObject::connect(level,&levels::level3,this,&MainWindow::startlevel3);
+    QObject::connect(level,&levels::level4,this,&MainWindow::startlevel4);
+    QObject::connect(level,&levels::level5,this,&MainWindow::startlevel5);
     setCentralWidget(level);
 }
 void MainWindow::reset(){
     ui->setupUi(this);
     delete level;
+}
+void MainWindow::startlevel1(){
+    QGraphicsScene * scene = new QGraphicsScene;
+    QGraphicsView * view = new QGraphicsView;
+    scene->setSceneRect(0,0,1200,800);
+    view->setScene(scene);
+    setCentralWidget(view);
+
+
+}
+void MainWindow::startlevel2(){
+
+}
+void MainWindow::startlevel3(){
+
+}
+void MainWindow::startlevel4(){
+
+}
+void MainWindow::startlevel5(){
+
 }
 
