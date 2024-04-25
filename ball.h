@@ -6,10 +6,13 @@
 class ball : public QObject, public QGraphicsEllipseItem
 {
     Q_OBJECT
+private:
+    int yv;
+    int xv;
 public:
     ball();
 public slots:
-    void move(bool right, bool up, int speed);
+    void move();
 };
 
 #endif // BALL_H

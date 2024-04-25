@@ -4,6 +4,7 @@
 #include <QGraphicsView>
 #include <QWidget>
 #include <QTimer>
+#include "ball.h"
 #include <QGraphicsScene>
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -40,23 +41,23 @@ void MainWindow::startlevel1(){
     scene->addItem(player);
     player->setPos(550,750);
     view->setFixedSize(1200,800);
+    ball * balling = new ball;
+    balling->setPos(592.5, 710);
+    scene->addItem(balling);
+    blocks *arr[12][5];
+    for (int i = 0; i < 12; i++) {
+        for (int j = 0; j < 5; ++j) {
+            arr[i][j] = new blocks();
+            arr[i][j]->setRect(i*102, j*52 +50, 100,50);
+            scene->addItem(arr[i][j]);
+        }
+
+    }
     view->setScene(scene);
     view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();
-    /*QTimer * time = new QTimer();
-    QObject::connect(time, SIGNAL(timeout()),player,SLOT());
-    time->start(2000);*/
-    blocks *arr[12][5];
-    for (int i = 0; i < 12; i++) {
-        for (int j = 0; j < 5; ++j) {
-            arr[i][j] = new blocks();
-            arr[i][j]->setRect(i*101, j*51, 100,50);
-            scene->addItem(arr[i][j]);
-        }
-
-    }
 
 
 
