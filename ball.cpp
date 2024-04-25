@@ -4,7 +4,10 @@
 #include "slider.h"
 #include <QBrush>
 #include <QPen>
-ball::ball() {
+#include "health.h"
+#include "score.h"
+#include <QGraphicsScene>
+ball::ball(int no) {
     setRect(0,0, 15, 15);
     QBrush brush;
     brush.setStyle(Qt::SolidPattern);
@@ -19,8 +22,14 @@ ball::ball() {
     time->start(15);
     xv = 0;
     yv = 5;
+    number=no;
 }
-
+void ball::setup(){
+    hl=new health();
+    scr= new score();
+    scene()->addItem(hl);
+    scene()->addItem(scr);
+}
 void ball::move(){
     if(x() <= 0){
         xv = -1 * xv;
@@ -30,6 +39,15 @@ void ball::move(){
     }
     if(y() <= 0){
         yv = -1* yv;
+    }
+    if(y()>800){
+        hl->decrease_health();
+        if(hl->gethealth()<0){
+            emit lose();
+        }
+        setPos(592.5, 710);
+        xv = 0;
+        yv = -5;
     }
     setPos(x() + xv, y() + yv);
     QList<QGraphicsItem*> cItems = collidingItems();
@@ -59,7 +77,8 @@ void ball::move(){
                 if(bally<blocky+50){
                     xv*=-1;
                 }else if(bally==blocky+50){
-
+                    xv*=-1;
+                    yv*=-1;
                 }
                 else{
                     yv*=-1;
@@ -75,10 +94,19 @@ void ball::move(){
                     yv*=-1;
                 }
             }
-
+            scr->increase_score();
             delete u;
+            if(scr->getscore()==number){
+                yv=0;
+                xv=0;
+                emit win();
+            }
         }
     }
 
+}
+ball:: ~ball(){
+    delete hl;
+    delete scr;
 }
 

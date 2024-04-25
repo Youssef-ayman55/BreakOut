@@ -1,6 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-
+#include "ball.h"
 #include <QMainWindow>
 #include <QGraphicsView>
 #include <QGraphicsScene>
@@ -22,6 +22,7 @@ public:
 
 private slots:
     void on_new_game_clicked();
+    void backtolevels();
 public slots:
     void reset();
     void startlevel1();
@@ -36,5 +37,6 @@ private:
     QGraphicsScene * scene;
     levels * level;
     slider * player;
+    ball * balling;
 };
 #endif // MAINWINDOW_H

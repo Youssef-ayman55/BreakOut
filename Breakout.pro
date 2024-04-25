@@ -11,6 +11,7 @@ CONFIG += c++17
 SOURCES += \
     ball.cpp \
     blocks.cpp \
+    global.cpp \
     health.cpp \
     levels.cpp \
     main.cpp \

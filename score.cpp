@@ -2,8 +2,9 @@
 #include <QFont>
 score::score() {
     score_val=0;
-    setPlainText(QString("Health: ") + QString::number(score_val));
-    setDefaultTextColor(Qt::white);
+    setPos(100,0);
+    setPlainText(QString("Score: ") + QString::number(score_val));
+    setDefaultTextColor(Qt::black);
     setFont(QFont("times", 16));
 }
 

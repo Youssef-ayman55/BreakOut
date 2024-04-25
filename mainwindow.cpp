@@ -5,6 +5,7 @@
 #include <QWidget>
 #include <QTimer>
 #include "ball.h"
+
 #include <QGraphicsScene>
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -41,17 +42,18 @@ void MainWindow::startlevel1(){
     scene->addItem(player);
     player->setPos(550,750);
     view->setFixedSize(1200,800);
-    ball * balling = new ball;
+    balling = new ball(12*4);
     balling->setPos(592.5, 710);
     scene->addItem(balling);
+    balling->setup();
+    QObject::connect(balling,&ball::win,this,&MainWindow::backtolevels);
     blocks *arr[12][5];
     for (int i = 0; i < 12; i++) {
-        for (int j = 0; j < 5; ++j) {
+        for (int j = 0; j < 4; ++j) {
             arr[i][j] = new blocks();
             arr[i][j]->setRect(i*102, j*52 +50, 100,50);
             scene->addItem(arr[i][j]);
         }
-
     }
     view->setScene(scene);
     view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -59,9 +61,7 @@ void MainWindow::startlevel1(){
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();
 
-
-
-    delete level;
+    //delete level;
     setCentralWidget(view);
 }
 void MainWindow::startlevel2(){
@@ -75,5 +75,14 @@ void MainWindow::startlevel4(){
 }
 void MainWindow::startlevel5(){
 
+}
+void MainWindow:: backtolevels(){
+    delete balling;
+    delete player;
+    delete view;
+    delete scene;
+    level=new levels();
+    setCentralWidget(level);
+    QObject::connect(level,&levels::back,this,&MainWindow::reset);
 }
 
