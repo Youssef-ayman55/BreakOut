@@ -2,8 +2,18 @@
 #include <QTimer>
 #include "blocks.h"
 #include "slider.h"
+#include <QBrush>
+#include <QPen>
 ball::ball() {
     setRect(0,0, 15, 15);
+    QBrush brush;
+    brush.setStyle(Qt::SolidPattern);
+    brush.setColor(Qt::red);
+    setBrush(brush);
+    QPen pen;
+    pen.setWidth(1);
+    pen.setColor(Qt::black);
+    setPen(pen);
     QTimer * time = new QTimer();
     QObject::connect(time, SIGNAL(timeout()),this, SLOT(move()));
     time->start(15);
@@ -37,30 +47,35 @@ void ball::move(){
     for(int i = 0; i< cItems.count(); i++){
         blocks * u = dynamic_cast<blocks *>(cItems[i]);
         if(u){
-            double yPad = 15;
-            double xPad = 15;
             double ballx = pos().x();
             double bally = pos().y();
             double blockx = u->pos().x();
             double blocky = u->pos().y();
-            if (bally > blocky ){
-                yv = -1 * yv;
-                if (ballx > blockx && bally <= blocky + 50) {
-                    xv = -1 * xv;
+            if(bally == blocky){
+                xv*=-1;
+            }else if(ballx==blockx){
+                yv*=-1;
+            }else if(bally>blocky){
+                if(bally<blocky+50){
+                    xv*=-1;
+                }else if(bally==blocky+50){
+
                 }
-                else if (blockx > ballx + xPad && bally <= blocky + 50){
-                    xv = -1 * xv;
+                else{
+                    yv*=-1;
+                }
+            }else if(blocky>bally){
+                if(bally+15>blocky){
+                    xv*=-1;
+                }else if(bally+15==blocky){
+                    xv*=-1;
+                    yv*=-1;
+                }
+                else{
+                    yv*=-1;
                 }
             }
-            else if (blocky > bally ){
-                yv = -1 * yv;
-                if (ballx > blockx && bally <= blocky + 50) {
-                    xv = -1 * xv;
-                }
-                else if (blockx > ballx + xPad && bally <= blocky + 50){
-                    xv = -1 * xv;
-                }
-            }
+
             delete u;
         }
     }
