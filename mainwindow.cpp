@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "blocks.h"
 #include <QGraphicsView>
 #include <QWidget>
 #include <QTimer>
@@ -37,14 +38,28 @@ void MainWindow::startlevel1(){
     player = new slider;
     scene->setSceneRect(0,0,1200,800);
     scene->addItem(player);
+    player->setPos(550,750);
+    view->setFixedSize(1200,800);
     view->setScene(scene);
     view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();
-    QTimer * time = new QTimer();
+    /*QTimer * time = new QTimer();
     QObject::connect(time, SIGNAL(timeout()),player,SLOT());
-    time->start(2000);
+    time->start(2000);*/
+    blocks *arr[12][5];
+    for (int i = 0; i < 12; i++) {
+        for (int j = 0; j < 5; ++j) {
+            arr[i][j] = new blocks();
+            arr[i][j]->setRect(i*101, j*51, 100,50);
+            scene->addItem(arr[i][j]);
+        }
+
+    }
+
+
+
     delete level;
     setCentralWidget(view);
 }
