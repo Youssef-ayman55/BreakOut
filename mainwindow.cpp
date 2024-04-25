@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QGraphicsView>
+#include <QWidget>
 #include <QGraphicsScene>
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -30,13 +31,18 @@ void MainWindow::reset(){
     delete level;
 }
 void MainWindow::startlevel1(){
-    QGraphicsScene * scene = new QGraphicsScene;
-    QGraphicsView * view = new QGraphicsView;
+    scene = new QGraphicsScene;
+    view = new QGraphicsView;
+    player = new slider;
     scene->setSceneRect(0,0,1200,800);
+    scene->addItem(player);
     view->setScene(scene);
+    view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    player->setFlag(QGraphicsItem::ItemIsFocusable);
+    player->setFocus();
+    delete level;
     setCentralWidget(view);
-
-
 }
 void MainWindow::startlevel2(){
 

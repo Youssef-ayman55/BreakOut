@@ -360,6 +360,14 @@
     <string>Back</string>
    </property>
   </widget>
+  <zorder>title_2</zorder>
+  <zorder>title_3</zorder>
+  <zorder>level2</zorder>
+  <zorder>level3</zorder>
+  <zorder>level4</zorder>
+  <zorder>level5</zorder>
+  <zorder>back</zorder>
+  <zorder>level1</zorder>
  </widget>
  <resources/>
  <connections/>

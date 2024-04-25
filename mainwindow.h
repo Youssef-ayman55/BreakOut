@@ -5,6 +5,7 @@
 #include <QGraphicsView>
 #include <QGraphicsScene>
 #include "levels.h"
+#include "slider.h"
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -34,5 +35,6 @@ private:
     QGraphicsView * view;
     QGraphicsScene * scene;
     levels * level;
+    slider * player;
 };
 #endif // MAINWINDOW_H
