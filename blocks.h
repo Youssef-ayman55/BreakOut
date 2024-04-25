@@ -4,16 +4,15 @@
 #include <QObject>
 #include <QGraphicsRectItem>
 #include <QGraphicsTextItem>
-class slider : public QObject, public QGraphicsRectItem
+class blocks : public QObject, public QGraphicsRectItem
 {
     Q_OBJECT
 public:
-    slider();
+    blocks(int x, int y);
 private:
     int score_val;
     QGraphicsTextItem * score;
 public slots:
-    void keyPressEvent(QKeyEvent * event);
 };
 
 #endif // SLIDER_H
