@@ -41,10 +41,8 @@ void ball::move(){
         yv = -1* yv;
     }
     if(y()>800){
+        yv = 0;
         hl->decrease_health();
-        if(hl->gethealth()<0){
-            emit lose();
-        }
         setPos(592.5, 710);
         xv = 0;
         yv = -5;
@@ -96,12 +94,15 @@ void ball::move(){
             }
             scr->increase_score();
             delete u;
-            if(scr->getscore()==number){
+            if(scr->getscore() == number){
                 yv=0;
                 xv=0;
                 emit win();
             }
         }
+    }
+    if(hl->gethealth()<=0){
+        emit lose();
     }
 
 }

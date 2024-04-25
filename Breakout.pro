@@ -14,10 +14,12 @@ SOURCES += \
     global.cpp \
     health.cpp \
     levels.cpp \
+    lose.cpp \
     main.cpp \
     mainwindow.cpp \
     score.cpp \
-    slider.cpp
+    slider.cpp \
+    win.cpp
 
 HEADERS += \
     ball.h \
@@ -25,15 +27,21 @@ HEADERS += \
     global.h \
     health.h \
     levels.h \
+    lose.h \
     mainwindow.h \
     score.h \
-    slider.h
+    slider.h \
+    win.h
 
 FORMS += \
     levels.ui \
-    mainwindow.ui
+    lose.ui \
+    mainwindow.ui \
+    win.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES +=

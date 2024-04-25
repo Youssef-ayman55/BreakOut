@@ -5,6 +5,7 @@
 #include <QWidget>
 #include <QTimer>
 #include "ball.h"
+#include "win.h"
 
 #include <QGraphicsScene>
 MainWindow::MainWindow(QWidget *parent)
@@ -46,7 +47,8 @@ void MainWindow::startlevel1(){
     balling->setPos(592.5, 710);
     scene->addItem(balling);
     balling->setup();
-    QObject::connect(balling,&ball::win,this,&MainWindow::backtolevels);
+    QObject::connect(balling,&ball::win,this,&MainWindow::displaywin);
+    QObject::connect(balling,&ball::lose,this,&MainWindow::displaylose);
     blocks *arr[12][5];
     for (int i = 0; i < 12; i++) {
         for (int j = 0; j < 4; ++j) {
@@ -76,13 +78,41 @@ void MainWindow::startlevel4(){
 void MainWindow::startlevel5(){
 
 }
-void MainWindow:: backtolevels(){
+void MainWindow:: backtolevelsfromwin(){
+    delete winning;
+    level = new levels;
+    setCentralWidget(level);
+    QObject::connect(level,&levels::back,this,&MainWindow::reset);
+
+}
+void MainWindow:: retrylevel1(){
+    delete losing;
+    startlevel1();
+}
+void MainWindow:: backtolevelsfromlose(){
+    delete losing;
+    level = new levels;
+    setCentralWidget(level);
+    QObject::connect(level,&levels::back,this,&MainWindow::reset);
+
+}
+void MainWindow::displaywin(){
     delete balling;
     delete player;
     delete view;
     delete scene;
-    level=new levels();
-    setCentralWidget(level);
-    QObject::connect(level,&levels::back,this,&MainWindow::reset);
-}
+    winning = new win;
+    setCentralWidget(winning);
+    QObject::connect(winning,&win::backtolevels,this,&MainWindow::backtolevelsfromwin);
 
+}
+void MainWindow::displaylose(){
+    delete balling;
+    delete player;
+    delete view;
+    delete scene;
+    losing = new lose;
+    setCentralWidget(losing);
+    QObject::connect(losing,&lose::backtolevels,this,&MainWindow::backtolevelsfromlose);
+    QObject::connect(losing,&lose::retry,this,&MainWindow::retrylevel1);
+}

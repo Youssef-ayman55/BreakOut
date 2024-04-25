@@ -6,6 +6,8 @@
 #include <QGraphicsScene>
 #include "levels.h"
 #include "slider.h"
+#include "win.h"
+#include "lose.h"
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -22,9 +24,13 @@ public:
 
 private slots:
     void on_new_game_clicked();
-    void backtolevels();
+    void backtolevelsfromwin();
+    void backtolevelsfromlose();
+    void retrylevel1();
 public slots:
     void reset();
+    void displaywin();
+    void displaylose();
     void startlevel1();
     void startlevel2();
     void startlevel3();
@@ -38,5 +44,7 @@ private:
     levels * level;
     slider * player;
     ball * balling;
+    win * winning;
+    lose * losing;
 };
 #endif // MAINWINDOW_H
