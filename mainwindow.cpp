@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include <QGraphicsView>
 #include <QWidget>
+#include <QTimer>
 #include <QGraphicsScene>
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -41,6 +42,9 @@ void MainWindow::startlevel1(){
     view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();
+    QTimer * time = new QTimer();
+    QObject::connect(time, SIGNAL(timeout()),player,SLOT());
+    time->start(2000);
     delete level;
     setCentralWidget(view);
 }

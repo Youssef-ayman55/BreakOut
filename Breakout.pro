@@ -9,17 +9,23 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    ball.cpp \
     blocks.cpp \
+    health.cpp \
     levels.cpp \
     main.cpp \
     mainwindow.cpp \
+    score.cpp \
     slider.cpp
 
 HEADERS += \
+    ball.h \
     blocks.h \
     global.h \
+    health.h \
     levels.h \
     mainwindow.h \
+    score.h \
     slider.h
 
 FORMS += \
