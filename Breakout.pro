@@ -11,7 +11,6 @@ CONFIG += c++17
 SOURCES += \
     ball.cpp \
     blocks.cpp \
-    global.cpp \
     health.cpp \
     levels.cpp \
     lose.cpp \
@@ -24,7 +23,6 @@ SOURCES += \
 HEADERS += \
     ball.h \
     blocks.h \
-    global.h \
     health.h \
     levels.h \
     lose.h \
@@ -44,4 +42,5 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-RESOURCES +=
+RESOURCES += \
+    levels.qrc

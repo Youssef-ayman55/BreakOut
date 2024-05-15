@@ -93,7 +93,7 @@ void ball::move(){
                 }
             }
             scr->increase_score();
-            delete u;
+            if(u->type==1)delete u;
             if(scr->getscore() == number){
                 yv=0;
                 xv=0;

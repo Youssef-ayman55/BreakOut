@@ -26,6 +26,7 @@ private slots:
     void on_new_game_clicked();
     void retrylevel1();
     void displaylevels();
+    void start(int x);
 public slots:
     void reset();
     void displaywin();

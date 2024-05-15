@@ -8,7 +8,8 @@ class blocks : public QObject, public QGraphicsRectItem
 {
     Q_OBJECT
 public:
-    blocks();
+    blocks(int t);
+    int type;
 private:
     int score_val;
     QGraphicsTextItem * score;
