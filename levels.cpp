@@ -15,35 +15,41 @@ levels::~levels()
 void levels::on_back_clicked()
 {
     emit back();
+    delete this;
 }
 
 
 void levels::on_level1_clicked()
 {
     emit level1();
+    delete this;
 }
 
 void levels::on_level2_clicked()
 {
     emit level2();
+    delete this;
 }
 
 
 
 void levels::on_level3_clicked()
 {
-        emit level3();
+    emit level3();
+    delete this;
 }
 
 
 void levels::on_level4_clicked()
 {
-        emit level4();
+    emit level4();
+    delete this;
 }
 
 
 void levels::on_level5_clicked()
 {
-        emit level5();
+    emit level5();
+    delete this;
 }
 

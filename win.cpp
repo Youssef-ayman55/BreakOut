@@ -16,5 +16,6 @@ win::~win()
 void win::on_back_2_clicked()
 {
     emit backtolevels();
+    delete this;
 }
 

@@ -24,9 +24,8 @@ public:
 
 private slots:
     void on_new_game_clicked();
-    void backtolevelsfromwin();
-    void backtolevelsfromlose();
     void retrylevel1();
+    void displaylevels();
 public slots:
     void reset();
     void displaywin();
@@ -38,13 +37,13 @@ public slots:
     void startlevel5();
 
 private:
-    Ui::MainWindow *ui;
+    Ui::MainWindow * ui;
     QGraphicsView * view;
     QGraphicsScene * scene;
-    levels * level;
-    slider * player;
-    ball * balling;
-    win * winning;
-    lose * losing;
+    levels * levels_w;
+    slider * slider_w;
+    ball * ball_w;
+    win * win_w;
+    lose * lose_w;
 };
 #endif // MAINWINDOW_H

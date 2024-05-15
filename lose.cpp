@@ -16,11 +16,13 @@ lose::~lose()
 void lose::on_back_clicked()
 {
     emit retry();
+    delete this;
 }
 
 
 void lose::on_back_2_clicked()
 {
     emit backtolevels();
+    delete this;
 }
 

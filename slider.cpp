@@ -12,24 +12,44 @@ slider::slider() {
     pen.setWidth(1);
     pen.setColor(Qt::black);
     setPen(pen);
+    timer = new QTimer;
+    QObject::connect(timer, SIGNAL(timeout()),this, SLOT(move()));
+    timer->start(3);
+    right = false;
+    left = false;
 }
 void slider::keyPressEvent(QKeyEvent * event){
-    if(event->key()== Qt::Key_Left)
-    {
-        if(x()>0)
+    if(event->type() == QEvent::KeyPress){
+        if(event->key()== Qt::Key_Left)
         {
-            for(int i = 0; i < 16; i++){
-                setPos(x()-2.5,y());
-            }
+            left = true;
+            right = false;
+        }
+        else if(event->key()== Qt::Key_Right)
+        {
+            right = true;
+            left = false;
         }
     }
-    else if(event->key()== Qt::Key_Right)
-
-    {
-        if(x()+100<1200){
-            for(int i = 0; i < 16; i++){
-                setPos(x()+2.5,y());
-            }
+}
+void slider::keyReleaseEvent(QKeyEvent * event){
+    if (event->type() == QEvent::KeyRelease){
+        if(event->key()== Qt::Key_Left)
+        {
+            left = false;
         }
+        else if(event->key()== Qt::Key_Right)
+        {
+            right = false;
+        }
+    }
+}
+
+void slider::move(){
+    if(left){
+        setPos(x()-1,y());
+    }
+    else if(right){
+        setPos(x()+1,y());
     }
 }
