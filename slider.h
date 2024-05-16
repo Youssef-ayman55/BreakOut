@@ -14,6 +14,8 @@ public:
     QTimer * timer;
     bool right;
     bool left;
+signals:
+    void start();
 public slots:
     void keyPressEvent(QKeyEvent * event);
     void keyReleaseEvent(QKeyEvent * event);

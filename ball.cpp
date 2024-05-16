@@ -26,7 +26,7 @@ ball::ball(int no) {
     time->start(15);
     reflection_cooldown = 0;
     xv = 0;
-    yv = 5;
+    yv = 0;
     acc=0;
     des=0;
     number=no;
@@ -65,7 +65,7 @@ void ball::move(){
         hl->decrease_health();
         setPos(592.5, 710);
         xv = 0;
-        yv = -5;
+        yv = 0;
     }
     setPos(x() + xv, y() + yv);
     QList<QGraphicsItem*> cItems = collidingItems();
@@ -117,6 +117,10 @@ void ball::collide(){
     if(hl->gethealth()<=0){
         emit lose();
     }
+}
+void ball::start(){
+    if(yv == 0)
+        yv = 5;
 }
 ball:: ~ball(){
     delete hl;

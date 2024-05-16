@@ -31,6 +31,7 @@ MainWindow::MainWindow(QWidget *parent)
     clicksound->setSource(QUrl("qrc:/music/Resources/click.mp3"));
 
     ui->setupUi(this);
+    this->setFixedSize(1200,800);
     coins=0;
 }
 
@@ -113,6 +114,7 @@ void MainWindow::start(int x){
     if(x==3) ball_w = new ball(15*60);
     if(x==4) ball_w = new ball(1748);
     if(x==5) ball_w = new ball(1748);
+    QObject::connect(slider_w, &slider::start, ball_w, &ball::start);
     ball_w->setPos(592.5, 710);
     scene->addItem(ball_w);
     ball_w->setup();

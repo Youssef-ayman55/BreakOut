@@ -30,6 +30,7 @@ void slider::keyPressEvent(QKeyEvent * event){
             right = true;
             left = false;
         }
+        else if(event->key()== Qt::Key_Space) emit start();
     }
 }
 void slider::keyReleaseEvent(QKeyEvent * event){

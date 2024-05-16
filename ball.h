@@ -38,6 +38,7 @@ public:
 public slots:
     void move();
     void collide();
+    void start();
 signals:
     void win();
     void lose();
