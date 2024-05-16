@@ -5,6 +5,7 @@
 #include <QGraphicsEllipseItem>
 #include "health.h"
 #include "score.h"
+#include <QTimer>
 #include <QMediaPlayer>
 #include <QAudioOutput>
 class ball : public QObject, public QGraphicsEllipseItem
@@ -24,6 +25,8 @@ private:
     QMediaPlayer *losesound;
     QAudioOutput *music6;
     QMediaPlayer *blocksound;
+    QTimer * colltime = new QTimer;
+    QTimer * time = new QTimer;
     int reflection_cooldown;
 
 public:
@@ -32,6 +35,7 @@ public:
     ~ball();
 public slots:
     void move();
+    void collide();
 signals:
     void win();
     void lose();

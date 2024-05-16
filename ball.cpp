@@ -5,6 +5,7 @@
 #include <QBrush>
 #include <QPen>
 #include "health.h"
+#include <iostream>
 #include "score.h"
 #include <QGraphicsScene>
 ball::ball(int no) {
@@ -17,9 +18,13 @@ ball::ball(int no) {
     pen.setWidth(1);
     pen.setColor(Qt::black);
     setPen(pen);
-    QTimer * time = new QTimer();
+    colltime = new QTimer;
+    QObject::connect(colltime, SIGNAL(timeout()),this, SLOT(collide()));
+    colltime->start(1);
+    time = new QTimer();
     QObject::connect(time, SIGNAL(timeout()),this, SLOT(move()));
     time->start(15);
+    reflection_cooldown = 0;
     xv = 0;
     yv = 5;
     number=no;
@@ -75,38 +80,23 @@ void ball::move(){
             yv = -1 * yv;
         }
     }
+}
+void ball::collide(){
+    if(reflection_cooldown){
+        reflection_cooldown--;
+        return;
+    }
+    QList<QGraphicsItem*> cItems = collidingItems();
     for(int i = 0; i< cItems.count(); i++){
         blocks * u = dynamic_cast<blocks *>(cItems[i]);
         if(u){
-            double ballx = pos().x() + 8;
-            double bally = pos().y() + 8;
-            double blockx = u->pos().x() + 10;
-            double blocky = u->pos().y() + 10;
-            if(bally == blocky){
-                xv*=-1;
-            }else if(ballx==blockx){
-                yv*=-1;
-            }else if(bally>blocky){
-                if(bally<blocky+20){
-                    xv*=-1;
-                }else if(bally==blocky+20){
-                    xv*=-1;
-                    yv*=-1;
-                }
-                else{
-                    yv*=-1;
-                }
-            }else if(blocky>bally){
-                if(bally+16>blocky){
-                    xv*=-1;
-                }else if(bally+16==blocky){
-                    xv*=-1;
-                    yv*=-1;
-                }
-                else{
-                    yv*=-1;
-                }
+            if(collidingItems().contains(u->surroundings[0]) || collidingItems().contains(u->surroundings[2])){
+                yv *= -1;
             }
+            if(collidingItems().contains(u->surroundings[1]) || collidingItems().contains(u->surroundings[3])){
+                xv *= -1;
+            }
+            reflection_cooldown = 15;
             if(u->type==1)
             {
                 scr->increase_score();
@@ -124,10 +114,11 @@ void ball::move(){
     if(hl->gethealth()<=0){
         emit lose();
     }
-
 }
 ball:: ~ball(){
     delete hl;
     delete scr;
+    delete time;
+    delete colltime;
 }
 

@@ -151,8 +151,10 @@ void MainWindow::start(int x){
                 in>>t;
                 if(t!=0){
                     blocks *newblock= new blocks(t);
-                    newblock->setRect(j*20,i*20,20,20);
+                    newblock->setRect(0,0,20,20);
+                    newblock->setPos(j * 20, i * 20);
                     scene->addItem(newblock);
+                    newblock->setup(scene);
                 }
             }
         }

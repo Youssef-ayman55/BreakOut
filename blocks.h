@@ -4,12 +4,16 @@
 #include <QObject>
 #include <QGraphicsRectItem>
 #include <QGraphicsTextItem>
+#include <QVector>
 class blocks : public QObject, public QGraphicsRectItem
 {
     Q_OBJECT
 public:
     blocks(int t);
+    ~blocks();
     int type;
+    QVector<QGraphicsRectItem *> surroundings;
+    void setup(QGraphicsScene *);
 private:
     int score_val;
     QGraphicsTextItem * score;
