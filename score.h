@@ -8,7 +8,7 @@ public:
 public:
     score();
 public slots:
-    void increase_score();
+    void increase_score(int x);
     int getscore();
 };
 

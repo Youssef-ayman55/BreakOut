@@ -6,11 +6,11 @@ slider::slider() {
     setRect(0, 0,100, 20);
     QBrush brush;
     brush.setStyle(Qt::SolidPattern);
-    brush.setColor(Qt::black);
+    brush.setColor(Qt::white);
     setBrush(brush);
     QPen pen;
     pen.setWidth(1);
-    pen.setColor(Qt::black);
+    pen.setColor(Qt::white);
     setPen(pen);
     timer = new QTimer;
     QObject::connect(timer, SIGNAL(timeout()),this, SLOT(move()));

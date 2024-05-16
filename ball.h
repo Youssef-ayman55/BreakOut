@@ -15,6 +15,8 @@ private:
     int yv;
     int xv;
     int number;
+    int acc;
+    int des;
     health * hl;
     score * scr;
     QAudioOutput *music2;

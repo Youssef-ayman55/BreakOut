@@ -18,10 +18,10 @@ MainWindow::MainWindow(QWidget *parent)
     bgsound = new QMediaPlayer;
     bgsound->setAudioOutput(music);
     bgsound->setSource(QUrl("qrc:/music/Resources/bgsound.mp3"));
-    bgsound->play();
+    //bgsound->play();
 
     connect(bgsound, &QMediaPlayer::mediaStatusChanged, this, &MainWindow::handleMediaStatusChanged);
-    bgsound->play();
+    //bgsound->play();
 
 
     QAudioOutput *music5 = new QAudioOutput;
@@ -31,6 +31,7 @@ MainWindow::MainWindow(QWidget *parent)
     clicksound->setSource(QUrl("qrc:/music/Resources/click.mp3"));
 
     ui->setupUi(this);
+    coins=0;
 }
 
 MainWindow::~MainWindow()
@@ -106,6 +107,7 @@ void MainWindow::start(int x){
     scene->addItem(slider_w);
     slider_w->setPos(550,750);
     view->setFixedSize(1200,800);
+    //edit the number of blocks
     if(x==1) ball_w = new ball(15*60);
     if(x==2) ball_w = new ball(18*60);
     if(x==3) ball_w = new ball(15*60);
@@ -131,8 +133,8 @@ void MainWindow::start(int x){
                 in>>t;
                 if(t!=0){
                     blocks *newblock= new blocks(t);
-                    newblock->setRect(0,0,20,20);
-                    newblock->setPos(j * 20, i * 20);
+                    newblock->setRect(0,0,20.1,20.1);
+                    newblock->setPos(j * 20, i * 20 +30);
                     scene->addItem(newblock);
                     newblock->setup(scene);
                 }

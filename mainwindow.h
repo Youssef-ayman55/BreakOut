@@ -53,5 +53,6 @@ private:
     QMediaPlayer *bgsound;
     QAudioOutput *music5;
     QMediaPlayer *clicksound;
+    int coins;
 };
 #endif // MAINWINDOW_H

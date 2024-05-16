@@ -27,6 +27,8 @@ ball::ball(int no) {
     reflection_cooldown = 0;
     xv = 0;
     yv = 5;
+    acc=0;
+    des=0;
     number=no;
     reflection_cooldown = 0;
     QAudioOutput *music2 = new QAudioOutput;
@@ -34,7 +36,6 @@ ball::ball(int no) {
     ballsound = new QMediaPlayer;
     ballsound->setAudioOutput(music2);
     ballsound->setSource(QUrl("qrc:/music/Resources/slidderh.mp3"));
-
     QAudioOutput *music5 = new QAudioOutput;
     music5->setVolume(100);
     blocksound = new QMediaPlayer;
@@ -78,6 +79,7 @@ void ball::move(){
             xv += dx;
             xv /= 16;
             yv = -1 * yv;
+            acc=0;
         }
     }
 }
@@ -99,11 +101,12 @@ void ball::collide(){
             reflection_cooldown = 15;
             if(u->type==1)
             {
-                scr->increase_score();
+                scr->increase_score(++acc);
+                des++;
                 blocksound->play();
                 delete u;
             }
-            if(scr->getscore() == number){
+            if(des == number){
                 yv=0;
                 xv=0;
                 emit win();
