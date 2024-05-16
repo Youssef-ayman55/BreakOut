@@ -4,6 +4,7 @@ health::health() {
     heal=3;
     setPlainText(QString("Health: ") + QString::number(heal));
     setDefaultTextColor(Qt::black);
+
     setFont(QFont("times", 16));
 }
 

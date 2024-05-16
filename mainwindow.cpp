@@ -57,45 +57,16 @@ void MainWindow::reset(){
     ui->setupUi(this);
 }
 void MainWindow::startlevel1(){
-    scene = new QGraphicsScene;
-    view = new QGraphicsView;
-    slider_w = new slider;
-    scene->setSceneRect(0,0,1200,800);
-    scene->addItem(slider_w);
-    slider_w->setPos(550,750);
-    view->setFixedSize(1200,800);
-    ball_w = new ball(12*4);
-    ball_w->setPos(592.5, 710);
-    scene->addItem(ball_w);
-    ball_w->setup();
-    QObject::connect(ball_w,&ball::win,this,&MainWindow::displaywin);
-    QObject::connect(ball_w,&ball::lose,this,&MainWindow::displaylose);
-    blocks *arr[12][5];
-    for (int i = 0; i < 12; i++) {
-        for (int j = 0; j < 4; ++j) {
-            arr[i][j] = new blocks(1);
-            arr[i][j]->setRect(i * 102, j * 52 + 50, 100,50);
-            scene->addItem(arr[i][j]);
-        }
-    }
-    view->setScene(scene);
-    setCentralWidget(view);
-    this->setFocus();
-    view->setFocus();
-    view->activateWindow();
-    view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    slider_w->setFlag(QGraphicsItem::ItemIsFocusable);
-    slider_w->setFocus();
+    start(1);
 }
 void MainWindow::startlevel2(){
-
+    start(2);
 }
 void MainWindow::startlevel3(){
-
+    start(3);
 }
 void MainWindow::startlevel4(){
-
+    start(4);
 }
 void MainWindow::startlevel5(){
     start(5);
@@ -135,13 +106,22 @@ void MainWindow::start(int x){
     scene->addItem(slider_w);
     slider_w->setPos(550,750);
     view->setFixedSize(1200,800);
-    ball_w = new ball(100000);
+    if(x==1) ball_w = new ball(15*60);
+    if(x==2) ball_w = new ball(18*60);
+    if(x==3) ball_w = new ball(15*60);
+    if(x==4) ball_w = new ball(1748);
+    if(x==5) ball_w = new ball(1748);
     ball_w->setPos(592.5, 710);
     scene->addItem(ball_w);
     ball_w->setup();
     QObject::connect(ball_w,&ball::win,this,&MainWindow::displaywin);
     QObject::connect(ball_w,&ball::lose,this,&MainWindow::displaylose);
-    QFile levelsfile(":/levels/level5.txt");
+    QFile levelsfile;
+    if(x==1)levelsfile.setFileName(":/levels/level1.txt");
+    if(x==2)levelsfile.setFileName(":/levels/level2.txt");
+    if(x==3)levelsfile.setFileName(":/levels/level3.txt");
+    if(x==4)levelsfile.setFileName(":/levels/level4.txt");
+    if(x==5)levelsfile.setFileName(":/levels/level5.txt");
     if (levelsfile.open(QIODevice::ReadOnly))
     {
         QTextStream in(&levelsfile);
@@ -151,7 +131,7 @@ void MainWindow::start(int x){
                 in>>t;
                 if(t!=0){
                     blocks *newblock= new blocks(t);
-                    newblock->setRect(j*20,i*20,20,20);
+                    newblock->setRect(j*20,i*20+40,20,20);
                     scene->addItem(newblock);
                 }
             }
