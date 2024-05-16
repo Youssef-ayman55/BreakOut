@@ -23,6 +23,19 @@ ball::ball(int no) {
     xv = 0;
     yv = 5;
     number=no;
+    QAudioOutput *music2 = new QAudioOutput;
+    music2->setVolume(100);
+    ballsound = new QMediaPlayer;
+    ballsound->setAudioOutput(music2);
+    ballsound->setSource(QUrl("qrc:/music/Resources/slidderh.mp3"));
+
+    QAudioOutput *music5 = new QAudioOutput;
+    music5->setVolume(100);
+    blocksound = new QMediaPlayer;
+    blocksound->setAudioOutput(music5);
+    blocksound->setSource(QUrl("qrc:/music/Resources/blockh.mp3"));
+
+
 }
 void ball::setup(){
     hl=new health();
@@ -52,6 +65,7 @@ void ball::move(){
     for(int i = 0; i < cItems.count(); i++){
         slider * z = dynamic_cast<slider *>(cItems[i]);
         if(z){
+                ballsound->play();
             double centerball = x()+ 7.5;
             double centerslider = z->x() +50;
             double dx = centerball -centerslider;
@@ -93,7 +107,11 @@ void ball::move(){
                 }
             }
             scr->increase_score();
-            if(u->type==1)delete u;
+            if(u->type==1)
+            {
+                blocksound->play();
+                delete u;
+            }
             if(scr->getscore() == number){
                 yv=0;
                 xv=0;

@@ -3,4 +3,12 @@
         <file>level5.txt</file>
         <file>level4.txt</file>
     </qresource>
+    <qresource prefix="/music">
+        <file>Resources/bgsound.mp3</file>
+        <file>Resources/blockh.mp3</file>
+        <file>Resources/click.mp3</file>
+        <file>Resources/lostsound.mp3</file>
+        <file>Resources/slidderh.mp3</file>
+        <file>Resources/winsound.mp3</file>
+    </qresource>
 </RCC>

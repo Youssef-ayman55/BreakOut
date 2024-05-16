@@ -5,6 +5,8 @@
 #include <QGraphicsEllipseItem>
 #include "health.h"
 #include "score.h"
+#include <QMediaPlayer>
+#include <QAudioOutput>
 class ball : public QObject, public QGraphicsEllipseItem
 {
     Q_OBJECT
@@ -14,6 +16,15 @@ private:
     int number;
     health * hl;
     score * scr;
+    QAudioOutput *music2;
+    QMediaPlayer *ballsound;
+    QAudioOutput *music3;
+    QMediaPlayer *winsound;
+    QAudioOutput *music4;
+    QMediaPlayer *losesound;
+    QAudioOutput *music6;
+    QMediaPlayer *blocksound;
+
 public:
     ball(int no);
     void setup();

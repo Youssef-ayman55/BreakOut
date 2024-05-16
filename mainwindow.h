@@ -8,6 +8,8 @@
 #include "slider.h"
 #include "win.h"
 #include "lose.h"
+#include <QAudioOutput>
+#include <QMediaPlayer>
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -21,6 +23,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void handleMediaStatusChanged(QMediaPlayer::MediaStatus status);
 
 private slots:
     void on_new_game_clicked();
@@ -46,5 +49,9 @@ private:
     ball * ball_w;
     win * win_w;
     lose * lose_w;
+    QAudioOutput *music;
+    QMediaPlayer *bgsound;
+    QAudioOutput *music5;
+    QMediaPlayer *clicksound;
 };
 #endif // MAINWINDOW_H

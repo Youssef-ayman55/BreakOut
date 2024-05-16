@@ -13,6 +13,23 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+    QAudioOutput *music = new QAudioOutput;
+    music->setVolume(100);
+    bgsound = new QMediaPlayer;
+    bgsound->setAudioOutput(music);
+    bgsound->setSource(QUrl("qrc:/music/Resources/bgsound.mp3"));
+    bgsound->play();
+
+    connect(bgsound, &QMediaPlayer::mediaStatusChanged, this, &MainWindow::handleMediaStatusChanged);
+    bgsound->play();
+
+
+    QAudioOutput *music5 = new QAudioOutput;
+    music5->setVolume(100);
+    clicksound = new QMediaPlayer;
+    clicksound->setAudioOutput(music5);
+    clicksound->setSource(QUrl("qrc:/music/Resources/click.mp3"));
+
     ui->setupUi(this);
 }
 
@@ -32,7 +49,9 @@ void MainWindow::displaylevels(){
 }
 void MainWindow::on_new_game_clicked()
 {
+    clicksound->play();
     displaylevels();
+
 }
 void MainWindow::reset(){
     ui->setupUi(this);
@@ -94,6 +113,7 @@ void MainWindow::displaywin(){
     win_w = new win;
     setCentralWidget(win_w);
     QObject::connect(win_w,&win::backtolevels,this,&MainWindow::displaylevels);
+    win_w->winsound->play();
 
 }
 void MainWindow::displaylose(){
@@ -105,6 +125,8 @@ void MainWindow::displaylose(){
     setCentralWidget(lose_w);
     QObject::connect(lose_w,&lose::backtolevels,this,&MainWindow::displaylevels);
     QObject::connect(lose_w,&lose::retry,this,&MainWindow::retrylevel1);
+    lose_w->losesound->play();
+
 }
 void MainWindow::start(int x){
     scene = new QGraphicsScene;
@@ -147,3 +169,14 @@ void MainWindow::start(int x){
     slider_w->setFlag(QGraphicsItem::ItemIsFocusable);
     slider_w->setFocus();
 }
+
+void MainWindow::handleMediaStatusChanged(QMediaPlayer::MediaStatus status)
+{
+    if (status == QMediaPlayer::EndOfMedia)
+    {
+        // Restart playback when the end of media is reached
+        bgsound->setPosition(0);
+        bgsound->play();
+    }
+}
+

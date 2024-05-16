@@ -1,6 +1,8 @@
 #ifndef LEVELS_H
 #define LEVELS_H
 #include <QMainWindow>
+#include <QMediaPlayer>
+#include <QAudioOutput>
 #include <QWidget>
 namespace Ui {
 class levels;
@@ -36,6 +38,8 @@ private slots:
     void on_level5_clicked();
 
 private:
+    QAudioOutput *music6;
+    QMediaPlayer *clicksound;
     Ui::levels *ui;
 };
 
