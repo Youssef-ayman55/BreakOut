@@ -24,6 +24,7 @@ private:
     QMediaPlayer *losesound;
     QAudioOutput *music6;
     QMediaPlayer *blocksound;
+    int reflection_cooldown;
 
 public:
     ball(int no);

@@ -55,7 +55,6 @@ void MainWindow::on_new_game_clicked()
 }
 void MainWindow::reset(){
     ui->setupUi(this);
-    delete levels_w;
 }
 void MainWindow::startlevel1(){
     scene = new QGraphicsScene;

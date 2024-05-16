@@ -8,7 +8,7 @@
 #include "score.h"
 #include <QGraphicsScene>
 ball::ball(int no) {
-    setRect(0,0, 15, 15);
+    setRect(0,0, 16, 16);
     QBrush brush;
     brush.setStyle(Qt::SolidPattern);
     brush.setColor(Qt::red);
@@ -23,6 +23,7 @@ ball::ball(int no) {
     xv = 0;
     yv = 5;
     number=no;
+    reflection_cooldown = 0;
     QAudioOutput *music2 = new QAudioOutput;
     music2->setVolume(100);
     ballsound = new QMediaPlayer;
@@ -65,30 +66,30 @@ void ball::move(){
     for(int i = 0; i < cItems.count(); i++){
         slider * z = dynamic_cast<slider *>(cItems[i]);
         if(z){
-                ballsound->play();
-            double centerball = x()+ 7.5;
+            ballsound->play();
+            double centerball = x()+ 8;
             double centerslider = z->x() +50;
             double dx = centerball -centerslider;
             xv += dx;
-            xv /= 15;
+            xv /= 16;
             yv = -1 * yv;
         }
     }
     for(int i = 0; i< cItems.count(); i++){
         blocks * u = dynamic_cast<blocks *>(cItems[i]);
         if(u){
-            double ballx = pos().x();
-            double bally = pos().y();
-            double blockx = u->pos().x();
-            double blocky = u->pos().y();
+            double ballx = pos().x() + 8;
+            double bally = pos().y() + 8;
+            double blockx = u->pos().x() + 10;
+            double blocky = u->pos().y() + 10;
             if(bally == blocky){
                 xv*=-1;
             }else if(ballx==blockx){
                 yv*=-1;
             }else if(bally>blocky){
-                if(bally<blocky+50){
+                if(bally<blocky+20){
                     xv*=-1;
-                }else if(bally==blocky+50){
+                }else if(bally==blocky+20){
                     xv*=-1;
                     yv*=-1;
                 }
@@ -96,9 +97,9 @@ void ball::move(){
                     yv*=-1;
                 }
             }else if(blocky>bally){
-                if(bally+15>blocky){
+                if(bally+16>blocky){
                     xv*=-1;
-                }else if(bally+15==blocky){
+                }else if(bally+16==blocky){
                     xv*=-1;
                     yv*=-1;
                 }
@@ -106,9 +107,9 @@ void ball::move(){
                     yv*=-1;
                 }
             }
-            scr->increase_score();
             if(u->type==1)
             {
+                scr->increase_score();
                 blocksound->play();
                 delete u;
             }
@@ -117,6 +118,7 @@ void ball::move(){
                 xv=0;
                 emit win();
             }
+            break;
         }
     }
     if(hl->gethealth()<=0){
