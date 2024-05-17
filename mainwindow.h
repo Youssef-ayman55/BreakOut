@@ -34,7 +34,7 @@ private slots:
     void displaylevels();
     void start(int x);
     void displaySettingsWindow();
-
+    void extendslider();
     public slots:
     void reset();
     void displaywin();

@@ -4,8 +4,8 @@
 #include "slider.h"
 #include <QBrush>
 #include <QPen>
+#include <QTimer>
 #include "health.h"
-#include <iostream>
 #include "score.h"
 #include <QGraphicsScene>
 ball::ball(int no) {
@@ -29,7 +29,8 @@ ball::ball(int no) {
     yv = 0;
     acc=0;
     des=0;
-    fireball=true;
+    fireball=false;
+    slider_extended=false;
     number=no;
     reflection_cooldown = 0;
     QAudioOutput *music2 = new QAudioOutput;
@@ -72,13 +73,25 @@ void ball::move(){
         slider * z = dynamic_cast<slider *>(cItems[i]);
         if(z){
             ballsound->play();
-            double centerball = x()+ 8;
-            double centerslider = z->x() +50;
-            double dx = centerball -centerslider;
-            xv += dx;
-            xv /= 16;
-            yv = -1 * yv;
+            if(!slider_extended){
+                double centerball = x()+ 8;
+                double centerslider = z->x() +50;
+                double dx = centerball -centerslider;
+                xv += dx;
+                xv /= 16;
+                yv = -1 * yv;
+            }else{
+                double centerball = x()+ 8;
+                double centerslider = z->x() +100;
+                double dx = centerball -centerslider;
+                xv += dx;
+                xv /= 16;
+                yv = -1 * yv;
+            }
+
+
             acc=0;
+            fireball=false;
         }
     }
 }
@@ -139,4 +152,9 @@ ball:: ~ball(){
     delete time;
     delete colltime;
 }
-
+void ball:: activefire(){
+    fireball=true;
+}
+void ball:: activeextending(){
+    slider_extended=true;
+}
