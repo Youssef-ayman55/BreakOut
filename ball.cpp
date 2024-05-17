@@ -176,7 +176,7 @@ void ball::activehugeball(){
         hugetimer->setSingleShot(true);
         hball = true;
         hugetimer->start(10000);
-        QObject::connect(hugetimer, SIGNAL(timeout()), this, SLOT(deactivatehugeball));
+        connect(hugetimer, &QTimer::timeout, this, &ball::deactivatehugeball);
         hugeball--;
         emit update();
     }

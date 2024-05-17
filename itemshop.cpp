@@ -30,6 +30,10 @@ ItemShop::ItemShop(QAudioOutput *music5, QMediaPlayer *clicksound, int coins, in
     ui->hugeballq->setText("Quantity: "+ QString::number(hugeball));
     ui->fireballq->setText("Quantity: "+ QString::number(fireball));
     ui->weaponsq->setText("Quantity: "+ QString::number(weapons));
+    ui->fireball_des->setText("Burn all blocks till hitting \n a slider or a wall.");
+    ui->hugeball_des->setText("The ball becomes double its \n size for 10 seconds.");
+    ui->extension_des->setText("The slider becomes double \n its width for the whole \n game.");
+    ui->weapons_des->setText("One bullet can destory \n blocks and walls.");
 }
 ItemShop::~ItemShop()
 {
@@ -107,8 +111,8 @@ void ItemShop::on_sellH_clicked()
 
 void ItemShop::on_addW_clicked()
 {
-    if(coins>=200){
-        coins-=200;
+    if(coins>=100){
+        coins-=100;
         weapons++;
         ui->warning->setText("Payment successful");
         QString str= QString::number(coins);
@@ -125,7 +129,7 @@ void ItemShop::on_sellW_clicked()
 {
     if(weapons){
         weapons--;
-        coins+=200;
+        coins+=100;
         ui->warning->setText("Sale successful");
         QString str= QString::number(coins);
         ui->coin_label->setText("Coins: " + str);
