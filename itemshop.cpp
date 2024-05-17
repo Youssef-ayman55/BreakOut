@@ -26,6 +26,10 @@ ItemShop::ItemShop(QAudioOutput *music5, QMediaPlayer *clicksound, int coins, in
     QString str= QString::number(coins);
     ui->coin_label->setText("Coins: " + str);
     ui->warning->setText("");
+    ui->extendq->setText("Quantity: "+ QString::number(extension));
+    ui->hugeballq->setText("Quantity: "+ QString::number(hugeball));
+    ui->fireballq->setText("Quantity: "+ QString::number(fireball));
+    ui->weaponsq->setText("Quantity: "+ QString::number(weapons));
 }
 ItemShop::~ItemShop()
 {
@@ -48,6 +52,7 @@ void ItemShop::on_addf_clicked()
         ui->warning->setText("Payment successful");
         QString str= QString::number(coins);
         ui->coin_label->setText("Coins: " + str);
+        ui->fireballq->setText("Quantity: "+ QString::number(fireball));
     }else{
         ui->warning->setText("You do not have enough coins.");
     }
@@ -61,6 +66,7 @@ void ItemShop::on_sellf_clicked()
         ui->warning->setText("Sale successful");
         QString str= QString::number(coins);
         ui->coin_label->setText("Coins: " + str);
+        ui->fireballq->setText("Quantity: "+ QString::number(fireball));
     }else{
         ui->warning->setText("You do not have enough fire balls.");
     }
@@ -75,6 +81,7 @@ void ItemShop::on_addH_clicked()
         ui->warning->setText("Payment successful");
         QString str= QString::number(coins);
         ui->coin_label->setText("Coins: " + str);
+        ui->hugeballq->setText("Quantity: "+ QString::number(hugeball));
     }else{
         ui->warning->setText("You do not have enough coins.");
     }
@@ -90,6 +97,7 @@ void ItemShop::on_sellH_clicked()
         ui->warning->setText("Sale successful");
         QString str= QString::number(coins);
         ui->coin_label->setText("Coins: " + str);
+        ui->hugeballq->setText("Quantity: "+ QString::number(hugeball));
     }else{
         ui->warning->setText("You do not have enough huge balls.");
     }
@@ -105,6 +113,7 @@ void ItemShop::on_addW_clicked()
         ui->warning->setText("Payment successful");
         QString str= QString::number(coins);
         ui->coin_label->setText("Coins: " + str);
+        ui->weaponsq->setText("Quantity: "+ QString::number(weapons));
     }else{
         ui->warning->setText("You do not have enough coins.");
     }
@@ -120,6 +129,7 @@ void ItemShop::on_sellW_clicked()
         ui->warning->setText("Sale successful");
         QString str= QString::number(coins);
         ui->coin_label->setText("Coins: " + str);
+        ui->weaponsq->setText("Quantity: "+ QString::number(weapons));
     }else{
         ui->warning->setText("You do not have enough weapons.");
     }
@@ -135,6 +145,7 @@ void ItemShop::on_addS_clicked()
         ui->warning->setText("Payment successful");
         QString str= QString::number(coins);
         ui->coin_label->setText("Coins: " + str);
+        ui->extendq->setText("Quantity: "+ QString::number(extension));
     }else{
         ui->warning->setText("You does not have enough coins.");
     }
@@ -150,6 +161,7 @@ void ItemShop::on_sellS_clicked()
         ui->warning->setText("Sale successful");
         QString str= QString::number(coins);
         ui->coin_label->setText("Coins: " + str);
+        ui->extendq->setText("Quantity: "+ QString::number(extension));
     }else{
         ui->warning->setText("You do not have enough extended sliders.");
     }
