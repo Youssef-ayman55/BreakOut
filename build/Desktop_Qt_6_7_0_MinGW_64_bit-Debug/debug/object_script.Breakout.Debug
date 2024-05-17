@@ -1,6 +1,7 @@
 debug/ball.o
 debug/blocks.o
 debug/health.o
+debug/itemshop.o
 debug/levels.o
 debug/lose.o
 debug/main.o
@@ -12,6 +13,7 @@ debug/win.o
 debug/qrc_levels.o
 debug/moc_ball.o
 debug/moc_blocks.o
+debug/moc_itemshop.o
 debug/moc_levels.o
 debug/moc_lose.o
 debug/moc_mainwindow.o

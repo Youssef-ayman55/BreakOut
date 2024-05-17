@@ -100,6 +100,9 @@ void ball::collide(){
         reflection_cooldown--;
         return;
     }
+    if(hl->gethealth()<=0){
+        emit lose();
+    }
     QList<QGraphicsItem*> cItems = collidingItems();
     for(int i = 0; i< cItems.count(); i++){
         blocks * u = dynamic_cast<blocks *>(cItems[i]);
@@ -138,9 +141,7 @@ void ball::collide(){
             break;
         }
     }
-    if(hl->gethealth()<=0){
-        emit lose();
-    }
+
 }
 void ball::start(){
     if(yv == 0)

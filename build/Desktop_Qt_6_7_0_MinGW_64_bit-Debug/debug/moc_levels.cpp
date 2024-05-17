@@ -43,6 +43,7 @@ constexpr auto qt_meta_stringdata_CLASSlevelsENDCLASS = QtMocHelpers::stringData
     "level3",
     "level4",
     "level5",
+    "click",
     "on_back_clicked",
     "on_level1_clicked",
     "on_level2_clicked",
@@ -61,30 +62,32 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSlevelsENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-      12,   14, // methods
+      13,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       6,       // signalCount
+       7,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   86,    2, 0x06,    1 /* Public */,
-       3,    0,   87,    2, 0x06,    2 /* Public */,
-       4,    0,   88,    2, 0x06,    3 /* Public */,
-       5,    0,   89,    2, 0x06,    4 /* Public */,
-       6,    0,   90,    2, 0x06,    5 /* Public */,
-       7,    0,   91,    2, 0x06,    6 /* Public */,
+       1,    0,   92,    2, 0x06,    1 /* Public */,
+       3,    0,   93,    2, 0x06,    2 /* Public */,
+       4,    0,   94,    2, 0x06,    3 /* Public */,
+       5,    0,   95,    2, 0x06,    4 /* Public */,
+       6,    0,   96,    2, 0x06,    5 /* Public */,
+       7,    0,   97,    2, 0x06,    6 /* Public */,
+       8,    0,   98,    2, 0x06,    7 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       8,    0,   92,    2, 0x0a,    7 /* Public */,
-       9,    0,   93,    2, 0x08,    8 /* Private */,
-      10,    0,   94,    2, 0x08,    9 /* Private */,
-      11,    0,   95,    2, 0x08,   10 /* Private */,
-      12,    0,   96,    2, 0x08,   11 /* Private */,
-      13,    0,   97,    2, 0x08,   12 /* Private */,
+       9,    0,   99,    2, 0x0a,    8 /* Public */,
+      10,    0,  100,    2, 0x08,    9 /* Private */,
+      11,    0,  101,    2, 0x08,   10 /* Private */,
+      12,    0,  102,    2, 0x08,   11 /* Private */,
+      13,    0,  103,    2, 0x08,   12 /* Private */,
+      14,    0,  104,    2, 0x08,   13 /* Private */,
 
  // signals: parameters
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -124,6 +127,8 @@ Q_CONSTINIT const QMetaObject levels::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'level5'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'click'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_back_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_level1_clicked'
@@ -152,12 +157,13 @@ void levels::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         case 3: _t->level3(); break;
         case 4: _t->level4(); break;
         case 5: _t->level5(); break;
-        case 6: _t->on_back_clicked(); break;
-        case 7: _t->on_level1_clicked(); break;
-        case 8: _t->on_level2_clicked(); break;
-        case 9: _t->on_level3_clicked(); break;
-        case 10: _t->on_level4_clicked(); break;
-        case 11: _t->on_level5_clicked(); break;
+        case 6: _t->click(); break;
+        case 7: _t->on_back_clicked(); break;
+        case 8: _t->on_level1_clicked(); break;
+        case 9: _t->on_level2_clicked(); break;
+        case 10: _t->on_level3_clicked(); break;
+        case 11: _t->on_level4_clicked(); break;
+        case 12: _t->on_level5_clicked(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -204,6 +210,13 @@ void levels::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
                 return;
             }
         }
+        {
+            using _t = void (levels::*)();
+            if (_t _q_method = &levels::click; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+                *result = 6;
+                return;
+            }
+        }
     }
     (void)_a;
 }
@@ -227,13 +240,13 @@ int levels::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 12)
+        if (_id < 13)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 12;
+        _id -= 13;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 12)
+        if (_id < 13)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 12;
+        _id -= 13;
     }
     return _id;
 }
@@ -272,5 +285,11 @@ void levels::level4()
 void levels::level5()
 {
     QMetaObject::activate(this, &staticMetaObject, 5, nullptr);
+}
+
+// SIGNAL 6
+void levels::click()
+{
+    QMetaObject::activate(this, &staticMetaObject, 6, nullptr);
 }
 QT_WARNING_POP

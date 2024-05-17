@@ -1,6 +1,7 @@
 release/ball.o
 release/blocks.o
 release/health.o
+release/itemshop.o
 release/levels.o
 release/lose.o
 release/main.o
@@ -12,6 +13,7 @@ release/win.o
 release/qrc_levels.o
 release/moc_ball.o
 release/moc_blocks.o
+release/moc_itemshop.o
 release/moc_levels.o
 release/moc_lose.o
 release/moc_mainwindow.o

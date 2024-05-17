@@ -13,6 +13,7 @@ SOURCES += \
     ball.cpp \
     blocks.cpp \
     health.cpp \
+    itemshop.cpp \
     levels.cpp \
     lose.cpp \
     main.cpp \
@@ -26,6 +27,7 @@ HEADERS += \
     ball.h \
     blocks.h \
     health.h \
+    itemshop.h \
     levels.h \
     lose.h \
     mainwindow.h \
@@ -35,6 +37,7 @@ HEADERS += \
     win.h
 
 FORMS += \
+    itemshop.ui \
     levels.ui \
     lose.ui \
     mainwindow.ui \

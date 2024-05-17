@@ -42,7 +42,8 @@ constexpr auto qt_meta_stringdata_CLASSMainWindowENDCLASS = QtMocHelpers::string
     "displaylevels",
     "start",
     "x",
-    "displaySettingsWindow",
+    "on_settings_clicked",
+    "extendslider",
     "reset",
     "displaywin",
     "displaylose",
@@ -63,7 +64,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-      13,   14, // methods
+      14,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -71,25 +72,27 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   92,    2, 0x08,    1 /* Private */,
-       3,    0,   93,    2, 0x08,    2 /* Private */,
-       4,    0,   94,    2, 0x08,    3 /* Private */,
-       5,    1,   95,    2, 0x08,    4 /* Private */,
-       7,    0,   98,    2, 0x08,    6 /* Private */,
-       8,    0,   99,    2, 0x0a,    7 /* Public */,
-       9,    0,  100,    2, 0x0a,    8 /* Public */,
-      10,    0,  101,    2, 0x0a,    9 /* Public */,
-      11,    0,  102,    2, 0x0a,   10 /* Public */,
-      12,    0,  103,    2, 0x0a,   11 /* Public */,
-      13,    0,  104,    2, 0x0a,   12 /* Public */,
-      14,    0,  105,    2, 0x0a,   13 /* Public */,
-      15,    0,  106,    2, 0x0a,   14 /* Public */,
+       1,    0,   98,    2, 0x08,    1 /* Private */,
+       3,    0,   99,    2, 0x08,    2 /* Private */,
+       4,    0,  100,    2, 0x08,    3 /* Private */,
+       5,    1,  101,    2, 0x08,    4 /* Private */,
+       7,    0,  104,    2, 0x08,    6 /* Private */,
+       8,    0,  105,    2, 0x0a,    7 /* Public */,
+       9,    0,  106,    2, 0x0a,    8 /* Public */,
+      10,    0,  107,    2, 0x0a,    9 /* Public */,
+      11,    0,  108,    2, 0x0a,   10 /* Public */,
+      12,    0,  109,    2, 0x0a,   11 /* Public */,
+      13,    0,  110,    2, 0x0a,   12 /* Public */,
+      14,    0,  111,    2, 0x0a,   13 /* Public */,
+      15,    0,  112,    2, 0x0a,   14 /* Public */,
+      16,    0,  113,    2, 0x0a,   15 /* Public */,
 
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void, QMetaType::Int,    6,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -121,7 +124,9 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         // method 'start'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<int, std::false_type>,
-        // method 'displaySettingsWindow'
+        // method 'on_settings_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'extendslider'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'reset'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
@@ -153,15 +158,16 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 1: _t->retrylevel1(); break;
         case 2: _t->displaylevels(); break;
         case 3: _t->start((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 4: _t->displaySettingsWindow(); break;
-        case 5: _t->reset(); break;
-        case 6: _t->displaywin(); break;
-        case 7: _t->displaylose(); break;
-        case 8: _t->startlevel1(); break;
-        case 9: _t->startlevel2(); break;
-        case 10: _t->startlevel3(); break;
-        case 11: _t->startlevel4(); break;
-        case 12: _t->startlevel5(); break;
+        case 4: _t->on_settings_clicked(); break;
+        case 5: _t->extendslider(); break;
+        case 6: _t->reset(); break;
+        case 7: _t->displaywin(); break;
+        case 8: _t->displaylose(); break;
+        case 9: _t->startlevel1(); break;
+        case 10: _t->startlevel2(); break;
+        case 11: _t->startlevel3(); break;
+        case 12: _t->startlevel4(); break;
+        case 13: _t->startlevel5(); break;
         default: ;
         }
     }
@@ -186,13 +192,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 13)
+        if (_id < 14)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 13;
+        _id -= 14;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 13)
+        if (_id < 14)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 13;
+        _id -= 14;
     }
     return _id;
 }

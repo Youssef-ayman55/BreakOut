@@ -38,6 +38,8 @@ constexpr auto qt_meta_stringdata_CLASSsliderENDCLASS = QtMocHelpers::stringData
     "slider",
     "start",
     "",
+    "fire",
+    "extends",
     "keyPressEvent",
     "QKeyEvent*",
     "event",
@@ -55,27 +57,31 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSsliderENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-       4,   14, // methods
+       6,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       1,       // signalCount
+       3,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   38,    2, 0x06,    1 /* Public */,
+       1,    0,   50,    2, 0x06,    1 /* Public */,
+       3,    0,   51,    2, 0x06,    2 /* Public */,
+       4,    0,   52,    2, 0x06,    3 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       3,    1,   39,    2, 0x0a,    2 /* Public */,
-       6,    1,   42,    2, 0x0a,    4 /* Public */,
-       7,    0,   45,    2, 0x0a,    6 /* Public */,
+       5,    1,   53,    2, 0x0a,    4 /* Public */,
+       8,    1,   56,    2, 0x0a,    6 /* Public */,
+       9,    0,   59,    2, 0x0a,    8 /* Public */,
 
  // signals: parameters
     QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
 
  // slots: parameters
-    QMetaType::Void, 0x80000000 | 4,    5,
-    QMetaType::Void, 0x80000000 | 4,    5,
+    QMetaType::Void, 0x80000000 | 6,    7,
+    QMetaType::Void, 0x80000000 | 6,    7,
     QMetaType::Void,
 
        0        // eod
@@ -91,6 +97,10 @@ Q_CONSTINIT const QMetaObject slider::staticMetaObject = { {
         // Q_OBJECT / Q_GADGET
         QtPrivate::TypeAndForceComplete<slider, std::true_type>,
         // method 'start'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'fire'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'extends'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'keyPressEvent'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
@@ -111,9 +121,11 @@ void slider::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         (void)_t;
         switch (_id) {
         case 0: _t->start(); break;
-        case 1: _t->keyPressEvent((*reinterpret_cast< std::add_pointer_t<QKeyEvent*>>(_a[1]))); break;
-        case 2: _t->keyReleaseEvent((*reinterpret_cast< std::add_pointer_t<QKeyEvent*>>(_a[1]))); break;
-        case 3: _t->move(); break;
+        case 1: _t->fire(); break;
+        case 2: _t->extends(); break;
+        case 3: _t->keyPressEvent((*reinterpret_cast< std::add_pointer_t<QKeyEvent*>>(_a[1]))); break;
+        case 4: _t->keyReleaseEvent((*reinterpret_cast< std::add_pointer_t<QKeyEvent*>>(_a[1]))); break;
+        case 5: _t->move(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -122,6 +134,20 @@ void slider::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
             using _t = void (slider::*)();
             if (_t _q_method = &slider::start; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 0;
+                return;
+            }
+        }
+        {
+            using _t = void (slider::*)();
+            if (_t _q_method = &slider::fire; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+                *result = 1;
+                return;
+            }
+        }
+        {
+            using _t = void (slider::*)();
+            if (_t _q_method = &slider::extends; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+                *result = 2;
                 return;
             }
         }
@@ -149,13 +175,13 @@ int slider::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 4)
+        if (_id < 6)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 4;
+        _id -= 6;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 4)
+        if (_id < 6)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 4;
+        _id -= 6;
     }
     return _id;
 }
@@ -164,5 +190,17 @@ int slider::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 void slider::start()
 {
     QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
+}
+
+// SIGNAL 1
+void slider::fire()
+{
+    QMetaObject::activate(this, &staticMetaObject, 1, nullptr);
+}
+
+// SIGNAL 2
+void slider::extends()
+{
+    QMetaObject::activate(this, &staticMetaObject, 2, nullptr);
 }
 QT_WARNING_POP

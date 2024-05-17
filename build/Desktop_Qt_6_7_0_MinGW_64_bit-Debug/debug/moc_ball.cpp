@@ -41,7 +41,9 @@ constexpr auto qt_meta_stringdata_CLASSballENDCLASS = QtMocHelpers::stringData(
     "lose",
     "move",
     "collide",
-    "start"
+    "start",
+    "activefire",
+    "activeextending"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
@@ -54,7 +56,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSballENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-       5,   14, // methods
+       7,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -62,19 +64,23 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSballENDCLASS[] = {
        2,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   44,    2, 0x06,    1 /* Public */,
-       3,    0,   45,    2, 0x06,    2 /* Public */,
+       1,    0,   56,    2, 0x06,    1 /* Public */,
+       3,    0,   57,    2, 0x06,    2 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       4,    0,   46,    2, 0x0a,    3 /* Public */,
-       5,    0,   47,    2, 0x0a,    4 /* Public */,
-       6,    0,   48,    2, 0x0a,    5 /* Public */,
+       4,    0,   58,    2, 0x0a,    3 /* Public */,
+       5,    0,   59,    2, 0x0a,    4 /* Public */,
+       6,    0,   60,    2, 0x0a,    5 /* Public */,
+       7,    0,   61,    2, 0x0a,    6 /* Public */,
+       8,    0,   62,    2, 0x0a,    7 /* Public */,
 
  // signals: parameters
     QMetaType::Void,
     QMetaType::Void,
 
  // slots: parameters
+    QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -100,6 +106,10 @@ Q_CONSTINIT const QMetaObject ball::staticMetaObject = { {
         // method 'collide'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'start'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'activefire'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'activeextending'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
@@ -116,6 +126,8 @@ void ball::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void *
         case 2: _t->move(); break;
         case 3: _t->collide(); break;
         case 4: _t->start(); break;
+        case 5: _t->activefire(); break;
+        case 6: _t->activeextending(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -159,13 +171,13 @@ int ball::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 5)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 5;
+        _id -= 7;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 5)
+        if (_id < 7)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 5;
+        _id -= 7;
     }
     return _id;
 }
