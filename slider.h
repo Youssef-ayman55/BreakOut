@@ -15,12 +15,17 @@ public:
     QTimer * timer;
     bool right;
     bool left;
+    bool slider_extended;
 signals:
     void start();
+    void fire();
+    void extends();
+
 public slots:
     void keyPressEvent(QKeyEvent * event);
     void keyReleaseEvent(QKeyEvent * event);
     void move();
+
 };
 
 #endif // SLIDER_H

@@ -13,6 +13,7 @@ slider::slider() {
     pen.setColor(Qt::white);
     setPen(pen);
     timer = new QTimer;
+    slider_extended=false;
     QObject::connect(timer, SIGNAL(timeout()),this, SLOT(move()));
     timer->start(3);
     right = false;
@@ -31,6 +32,11 @@ void slider::keyPressEvent(QKeyEvent * event){
             left = false;
         }
         else if(event->key()== Qt::Key_Space) emit start();
+        else if(event->key()== Qt::Key_Z) emit fire();
+        else if(event->key()== Qt::Key_X){
+            if(!slider_extended)emit extends();
+            slider_extended=true;
+        }
     }
 }
 void slider::keyReleaseEvent(QKeyEvent * event){
@@ -49,8 +55,10 @@ void slider::keyReleaseEvent(QKeyEvent * event){
 void slider::move(){
     if(left){
         setPos(x()-1,y());
+        if(slider_extended) setPos(x()-0.5,y());
     }
     else if(right){
         setPos(x()+1,y());
+        if(slider_extended) setPos(x()+0.5,y());
     }
 }

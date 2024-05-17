@@ -115,6 +115,9 @@ void MainWindow::start(int x){
     if(x==4) ball_w = new ball(1748);
     if(x==5) ball_w = new ball(1748);
     QObject::connect(slider_w, &slider::start, ball_w, &ball::start);
+    QObject::connect(slider_w, &slider::fire, ball_w, &ball::activefire);
+    QObject::connect(slider_w, &slider::extends, this, &MainWindow::extendslider);
+    QObject::connect(slider_w, &slider::extends, ball_w, &ball::activeextending);
     ball_w->setPos(592.5, 710);
     scene->addItem(ball_w);
     ball_w->setup();
@@ -155,8 +158,6 @@ void MainWindow::start(int x){
     slider_w->setFocus();
 }
 
-
-
 void MainWindow::handleMediaStatusChanged(QMediaPlayer::MediaStatus status)
 {
     if (status == QMediaPlayer::EndOfMedia)
@@ -167,6 +168,7 @@ void MainWindow::handleMediaStatusChanged(QMediaPlayer::MediaStatus status)
     }
 }
 
+<<<<<<< HEAD
 
 void MainWindow::on_settings_clicked()
 {
@@ -176,3 +178,11 @@ void MainWindow::on_settings_clicked()
     setCentralWidget(settings_w);
 }
 
+=======
+void MainWindow::extendslider(){
+    int tempx=slider_w->x();
+    int tempy=slider_w->y();
+    slider_w->setRect(0,0,200,20);
+    slider_w->setPos(tempx-50,tempy);
+}
+>>>>>>> 8cdef5423236452352bc92653d9f147969430cb2

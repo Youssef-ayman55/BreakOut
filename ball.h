@@ -18,6 +18,7 @@ private:
     int acc;
     int des;
     bool fireball;
+    bool slider_extended;
     health * hl;
     score * scr;
     QAudioOutput *music2;
@@ -41,6 +42,8 @@ public slots:
     void move();
     void collide();
     void start();
+    void activefire();
+    void activeextending();
 signals:
     void win();
     void lose();
