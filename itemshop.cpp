@@ -111,8 +111,8 @@ void ItemShop::on_sellH_clicked()
 
 void ItemShop::on_addW_clicked()
 {
-    if(coins>=200){
-        coins-=200;
+    if(coins>=100){
+        coins-=100;
         weapons++;
         ui->warning->setText("Payment successful");
         QString str= QString::number(coins);
@@ -129,7 +129,7 @@ void ItemShop::on_sellW_clicked()
 {
     if(weapons){
         weapons--;
-        coins+=200;
+        coins+=100;
         ui->warning->setText("Sale successful");
         QString str= QString::number(coins);
         ui->coin_label->setText("Coins: " + str);

@@ -1025,7 +1025,7 @@ QPushButton::pressed {
       </font>
      </property>
      <property name="text">
-      <string>Price: 200</string>
+      <string>Price: 100</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
