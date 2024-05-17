@@ -50,71 +50,106 @@ public:
         font.setBold(false);
         font.setItalic(false);
         level1->setFont(font);
-        level1->setStyleSheet(QString::fromUtf8(" background-color: rgb(93, 14, 65);\n"
+        level1->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: rgb(93, 14, 65);\n"
 "    border-style: solid;\n"
-"    color: rgb(255, 32, 78);\n"
+"    color:  rgb(255, 32, 78);;\n"
 "    border-width: 5px;\n"
 "    border-radius: 20px;\n"
-"    border-color: rgb(255, 32, 78);\n"
-"    font: 48px;\n"
-"    min-width: 10em;\n"
-"    padding: 6px;\n"
+"    border-color:  rgb(255, 32, 78);;\n"
+"    font-size: 48px; /* Corrected from 'font: 48px' */\n"
+"    padding: 6px; \n"
+"    background-repeat: no-repeat;\n"
+"    background-position: center;\n"
+"}\n"
+"QPushButton::pressed {\n"
+"    background-color: rgb(160, 21, 62); /* Background color when pressed */\n"
+"}\n"
+"\n"
 ""));
         level2 = new QPushButton(levels);
         level2->setObjectName("level2");
         level2->setGeometry(QRect(269, 370, 662, 81));
         level2->setFont(font);
-        level2->setStyleSheet(QString::fromUtf8(" background-color: rgb(93, 14, 65);\n"
+        level2->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: rgb(93, 14, 65);\n"
 "    border-style: solid;\n"
-"    color: rgb(255, 32, 78);\n"
+"    color:  rgb(255, 32, 78);;\n"
 "    border-width: 5px;\n"
 "    border-radius: 20px;\n"
-"    border-color: rgb(255, 32, 78);\n"
-"    font: 48px;\n"
-"    min-width: 10em;\n"
-"    padding: 6px;\n"
+"    border-color:  rgb(255, 32, 78);;\n"
+"    font-size: 48px; /* Corrected from 'font: 48px' */\n"
+"    padding: 6px; \n"
+"    background-repeat: no-repeat;\n"
+"    background-position: center;\n"
+"}\n"
+"QPushButton::pressed {\n"
+"    background-color: rgb(160, 21, 62); /* Background color when pressed */\n"
+"}\n"
+"\n"
 ""));
         level3 = new QPushButton(levels);
         level3->setObjectName("level3");
         level3->setGeometry(QRect(269, 470, 662, 81));
         level3->setFont(font);
-        level3->setStyleSheet(QString::fromUtf8(" background-color: rgb(93, 14, 65);\n"
+        level3->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: rgb(93, 14, 65);\n"
 "    border-style: solid;\n"
-"    color: rgb(255, 32, 78);\n"
+"    color:  rgb(255, 32, 78);;\n"
 "    border-width: 5px;\n"
 "    border-radius: 20px;\n"
-"    border-color: rgb(255, 32, 78);\n"
-"    font: 48px;\n"
-"    min-width: 10em;\n"
-"    padding: 6px;\n"
+"    border-color:  rgb(255, 32, 78);;\n"
+"    font-size: 48px; /* Corrected from 'font: 48px' */\n"
+"    padding: 6px; \n"
+"    background-repeat: no-repeat;\n"
+"    background-position: center;\n"
+"}\n"
+"QPushButton::pressed {\n"
+"    background-color: rgb(160, 21, 62); /* Background color when pressed */\n"
+"}\n"
+"\n"
 ""));
         level4 = new QPushButton(levels);
         level4->setObjectName("level4");
         level4->setGeometry(QRect(269, 570, 662, 81));
         level4->setFont(font);
-        level4->setStyleSheet(QString::fromUtf8(" background-color: rgb(93, 14, 65);\n"
+        level4->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: rgb(93, 14, 65);\n"
 "    border-style: solid;\n"
-"    color: rgb(255, 32, 78);\n"
+"    color:  rgb(255, 32, 78);;\n"
 "    border-width: 5px;\n"
 "    border-radius: 20px;\n"
-"    border-color: rgb(255, 32, 78);\n"
-"    font: 48px;\n"
-"    min-width: 10em;\n"
-"    padding: 6px;\n"
+"    border-color:  rgb(255, 32, 78);;\n"
+"    font-size: 48px; /* Corrected from 'font: 48px' */\n"
+"    padding: 6px; \n"
+"    background-repeat: no-repeat;\n"
+"    background-position: center;\n"
+"}\n"
+"QPushButton::pressed {\n"
+"    background-color: rgb(160, 21, 62); /* Background color when pressed */\n"
+"}\n"
+"\n"
 ""));
         level5 = new QPushButton(levels);
         level5->setObjectName("level5");
         level5->setGeometry(QRect(269, 670, 662, 81));
         level5->setFont(font);
-        level5->setStyleSheet(QString::fromUtf8(" background-color: rgb(93, 14, 65);\n"
+        level5->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: rgb(93, 14, 65);\n"
 "    border-style: solid;\n"
-"    color: rgb(255, 32, 78);\n"
+"    color:  rgb(255, 32, 78);;\n"
 "    border-width: 5px;\n"
 "    border-radius: 20px;\n"
-"    border-color: rgb(255, 32, 78);\n"
-"    font: 48px;\n"
-"    min-width: 10em;\n"
-"    padding: 6px;\n"
+"    border-color:  rgb(255, 32, 78);;\n"
+"    font-size: 48px; /* Corrected from 'font: 48px' */\n"
+"    padding: 6px; \n"
+"    background-repeat: no-repeat;\n"
+"    background-position: center;\n"
+"}\n"
+"QPushButton::pressed {\n"
+"    background-color: rgb(160, 21, 62); /* Background color when pressed */\n"
+"}\n"
+"\n"
 ""));
         title_2 = new QLabel(levels);
         title_2->setObjectName("title_2");
@@ -147,14 +182,22 @@ public:
         back->setObjectName("back");
         back->setGeometry(QRect(20, 670, 171, 81));
         back->setFont(font);
-        back->setStyleSheet(QString::fromUtf8(" background-color: rgb(93, 14, 65);\n"
+        back->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: rgb(93, 14, 65);\n"
 "    border-style: solid;\n"
-"    color: rgb(255, 32, 78);\n"
+"    color:  rgb(255, 32, 78);;\n"
 "    border-width: 5px;\n"
 "    border-radius: 20px;\n"
-"    border-color: rgb(255, 32, 78);\n"
-"    font: 48px;\n"
-"    padding: 6px;\n"
+"    border-color:  rgb(255, 32, 78);;\n"
+"    font-size: 48px; /* Corrected from 'font: 48px' */\n"
+"    padding: 6px; \n"
+"    background-repeat: no-repeat;\n"
+"    background-position: center;\n"
+"}\n"
+"QPushButton::pressed {\n"
+"    background-color: rgb(160, 21, 62); /* Background color when pressed */\n"
+"}\n"
+"\n"
 ""));
         title_2->raise();
         title_3->raise();

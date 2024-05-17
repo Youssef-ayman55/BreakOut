@@ -29,6 +29,7 @@ public:
     QLabel *title_2;
     QPushButton *new_game;
     QPushButton *settings;
+    QPushButton *itemshop;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -85,7 +86,7 @@ public:
         title_2->setAlignment(Qt::AlignCenter);
         new_game = new QPushButton(centralwidget);
         new_game->setObjectName("new_game");
-        new_game->setGeometry(QRect(269, 370, 662, 112));
+        new_game->setGeometry(QRect(269, 290, 662, 112));
         QPalette palette3;
         QBrush brush4(QColor(0, 0, 0, 255));
         brush4.setStyle(Qt::SolidPattern);
@@ -126,21 +127,28 @@ public:
         font1.setBold(false);
         font1.setItalic(false);
         new_game->setFont(font1);
-        new_game->setStyleSheet(QString::fromUtf8(" background-color: rgb(93, 14, 65);\n"
+        new_game->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: rgb(93, 14, 65);\n"
 "    border-style: solid;\n"
-"    color: rgb(255, 32, 78);\n"
+"    color:  rgb(255, 32, 78);;\n"
 "    border-width: 5px;\n"
 "    border-radius: 20px;\n"
-"    border-color: rgb(255, 32, 78);\n"
-"    font: 48px;\n"
-"    min-width: 10em;\n"
-"    padding: 6px;\n"
+"    border-color:  rgb(255, 32, 78);;\n"
+"    font-size: 48px; /* Corrected from 'font: 48px' */\n"
+"    padding: 6px; \n"
+"    background-repeat: no-repeat;\n"
+"    background-position: center;\n"
+"}\n"
+"QPushButton::pressed {\n"
+"    background-color: rgb(160, 21, 62); /* Background color when pressed */\n"
+"}\n"
+"\n"
 ""));
         QIcon icon(QIcon::fromTheme(QString::fromUtf8("computer")));
         new_game->setIcon(icon);
         settings = new QPushButton(centralwidget);
         settings->setObjectName("settings");
-        settings->setGeometry(QRect(270, 530, 662, 112));
+        settings->setGeometry(QRect(270, 440, 662, 112));
         QPalette palette4;
         palette4.setBrush(QPalette::Active, QPalette::WindowText, brush4);
         palette4.setBrush(QPalette::Active, QPalette::Button, brush5);
@@ -171,21 +179,79 @@ public:
 #endif
         settings->setPalette(palette4);
         settings->setFont(font1);
-        settings->setStyleSheet(QString::fromUtf8(" background-color: rgb(93, 14, 65);\n"
+        settings->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: rgb(93, 14, 65);\n"
 "    border-style: solid;\n"
-"    color: rgb(255, 32, 78);\n"
+"    color:  rgb(255, 32, 78);;\n"
 "    border-width: 5px;\n"
 "    border-radius: 20px;\n"
-"    border-color: rgb(255, 32, 78);\n"
-"    font: 48px;\n"
-"    min-width: 10em;\n"
-"    padding: 6px;\n"
+"    border-color:  rgb(255, 32, 78);;\n"
+"    font-size: 48px; /* Corrected from 'font: 48px' */\n"
+"    padding: 6px; \n"
+"    background-repeat: no-repeat;\n"
+"    background-position: center;\n"
+"}\n"
+"QPushButton::pressed {\n"
+"    background-color: rgb(160, 21, 62); /* Background color when pressed */\n"
+"}\n"
+"\n"
 ""));
         settings->setIcon(icon);
+        itemshop = new QPushButton(centralwidget);
+        itemshop->setObjectName("itemshop");
+        itemshop->setGeometry(QRect(270, 590, 662, 112));
+        QPalette palette5;
+        palette5.setBrush(QPalette::Active, QPalette::WindowText, brush4);
+        palette5.setBrush(QPalette::Active, QPalette::Button, brush5);
+        palette5.setBrush(QPalette::Active, QPalette::Text, brush4);
+        palette5.setBrush(QPalette::Active, QPalette::ButtonText, brush4);
+        palette5.setBrush(QPalette::Active, QPalette::Base, brush5);
+        palette5.setBrush(QPalette::Active, QPalette::Window, brush5);
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette5.setBrush(QPalette::Active, QPalette::PlaceholderText, brush6);
+#endif
+        palette5.setBrush(QPalette::Inactive, QPalette::WindowText, brush4);
+        palette5.setBrush(QPalette::Inactive, QPalette::Button, brush5);
+        palette5.setBrush(QPalette::Inactive, QPalette::Text, brush4);
+        palette5.setBrush(QPalette::Inactive, QPalette::ButtonText, brush4);
+        palette5.setBrush(QPalette::Inactive, QPalette::Base, brush5);
+        palette5.setBrush(QPalette::Inactive, QPalette::Window, brush5);
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette5.setBrush(QPalette::Inactive, QPalette::PlaceholderText, brush6);
+#endif
+        palette5.setBrush(QPalette::Disabled, QPalette::WindowText, brush4);
+        palette5.setBrush(QPalette::Disabled, QPalette::Button, brush5);
+        palette5.setBrush(QPalette::Disabled, QPalette::Text, brush4);
+        palette5.setBrush(QPalette::Disabled, QPalette::ButtonText, brush4);
+        palette5.setBrush(QPalette::Disabled, QPalette::Base, brush5);
+        palette5.setBrush(QPalette::Disabled, QPalette::Window, brush5);
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette5.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush6);
+#endif
+        itemshop->setPalette(palette5);
+        itemshop->setFont(font1);
+        itemshop->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: rgb(93, 14, 65);\n"
+"    border-style: solid;\n"
+"    color:  rgb(255, 32, 78);;\n"
+"    border-width: 5px;\n"
+"    border-radius: 20px;\n"
+"    border-color:  rgb(255, 32, 78);;\n"
+"    font-size: 48px; /* Corrected from 'font: 48px' */\n"
+"    padding: 6px; \n"
+"    background-repeat: no-repeat;\n"
+"    background-position: center;\n"
+"}\n"
+"QPushButton::pressed {\n"
+"    background-color: rgb(160, 21, 62); /* Background color when pressed */\n"
+"}\n"
+"\n"
+""));
+        itemshop->setIcon(icon);
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 1200, 25));
+        menubar->setGeometry(QRect(0, 0, 1200, 26));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
@@ -203,6 +269,7 @@ public:
         title_2->setText(QCoreApplication::translate("MainWindow", "BREAKOUT", nullptr));
         new_game->setText(QCoreApplication::translate("MainWindow", "NEW GAME", nullptr));
         settings->setText(QCoreApplication::translate("MainWindow", "Settings", nullptr));
+        itemshop->setText(QCoreApplication::translate("MainWindow", "ITEM SHOP", nullptr));
     } // retranslateUi
 
 };

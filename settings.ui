@@ -181,14 +181,22 @@
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true"> background-color: rgb(93, 14, 65);
+    <string notr="true">QPushButton {
+    background-color: rgb(93, 14, 65);
     border-style: solid;
-    color: rgb(255, 32, 78);
+    color:  rgb(255, 32, 78);;
     border-width: 5px;
     border-radius: 20px;
-    border-color: rgb(255, 32, 78);
-    font: 48px;
-    padding: 6px;
+    border-color:  rgb(255, 32, 78);;
+    font-size: 48px; /* Corrected from 'font: 48px' */
+    padding: 6px; 
+    background-repeat: no-repeat;
+    background-position: center;
+}
+QPushButton::pressed {
+    background-color: rgb(160, 21, 62); /* Background color when pressed */
+}
+
 </string>
    </property>
    <property name="text">

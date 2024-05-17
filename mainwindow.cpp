@@ -53,6 +53,19 @@ void MainWindow::on_new_game_clicked()
     displaylevels();
 
 }
+
+void MainWindow::displayshop()
+{
+    shop_w = new ItemShop(music5, clicksound);
+    QObject::connect(shop_w,&ItemShop::back,this,&MainWindow::reset);
+}
+
+void MainWindow::on_itemshop_clicked()
+{
+    clicksound->play();
+    displayshop();
+    setCentralWidget(shop_w);
+}
 void MainWindow::reset(){
     ui->setupUi(this);
 }
@@ -177,10 +190,12 @@ void MainWindow::on_settings_clicked()
     setCentralWidget(settings_w);
 }
 
+
 void MainWindow::extendslider(){
     int tempx=slider_w->x();
     int tempy=slider_w->y();
     slider_w->setRect(0,0,200,20);
     slider_w->setPos(tempx-50,tempy);
 }
+
 

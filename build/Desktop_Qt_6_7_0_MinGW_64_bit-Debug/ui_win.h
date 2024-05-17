@@ -73,27 +73,43 @@ public:
         font1.setBold(false);
         font1.setItalic(false);
         back->setFont(font1);
-        back->setStyleSheet(QString::fromUtf8(" background-color: rgb(93, 14, 65);\n"
+        back->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: rgb(93, 14, 65);\n"
 "    border-style: solid;\n"
-"    color: rgb(255, 32, 78);\n"
+"    color:  rgb(255, 32, 78);;\n"
 "    border-width: 5px;\n"
 "    border-radius: 20px;\n"
-"    border-color: rgb(255, 32, 78);\n"
-"    font: 48px;\n"
-"    padding: 6px;\n"
+"    border-color:  rgb(255, 32, 78);;\n"
+"    font-size: 48px; /* Corrected from 'font: 48px' */\n"
+"    padding: 6px; \n"
+"    background-repeat: no-repeat;\n"
+"    background-position: center;\n"
+"}\n"
+"QPushButton::pressed {\n"
+"    background-color: rgb(160, 21, 62); /* Background color when pressed */\n"
+"}\n"
+"\n"
 ""));
         back_2 = new QPushButton(win);
         back_2->setObjectName("back_2");
         back_2->setGeometry(QRect(390, 570, 421, 81));
         back_2->setFont(font1);
-        back_2->setStyleSheet(QString::fromUtf8(" background-color: rgb(93, 14, 65);\n"
+        back_2->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: rgb(93, 14, 65);\n"
 "    border-style: solid;\n"
-"    color: rgb(255, 32, 78);\n"
+"    color:  rgb(255, 32, 78);;\n"
 "    border-width: 5px;\n"
 "    border-radius: 20px;\n"
-"    border-color: rgb(255, 32, 78);\n"
-"    font: 48px;\n"
-"    padding: 6px;\n"
+"    border-color:  rgb(255, 32, 78);;\n"
+"    font-size: 48px; /* Corrected from 'font: 48px' */\n"
+"    padding: 6px; \n"
+"    background-repeat: no-repeat;\n"
+"    background-position: center;\n"
+"}\n"
+"QPushButton::pressed {\n"
+"    background-color: rgb(160, 21, 62); /* Background color when pressed */\n"
+"}\n"
+"\n"
 ""));
 
         retranslateUi(win);

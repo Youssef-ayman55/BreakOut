@@ -8,6 +8,7 @@
 #include "slider.h"
 #include "win.h"
 #include "lose.h"
+#include "itemshop.h"
 #include "settings.h"
 #include <QAudioOutput>
 #include <QMediaPlayer>
@@ -35,6 +36,8 @@ private slots:
     void displaylevels();
     void start(int x);
     void on_settings_clicked();
+    void displayshop();
+    void on_itemshop_clicked();
 
 public slots:
     void extendslider();
@@ -58,6 +61,7 @@ private:
     ball * ball_w;
     win * win_w;
     lose * lose_w;
+    ItemShop * shop_w;
     settings *settings_w;
     QAudioOutput *music5;
     QMediaPlayer *clicksound;
