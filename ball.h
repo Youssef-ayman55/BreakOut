@@ -18,9 +18,11 @@ private:
     int acc;
     int des;
     bool fireball;
+    QTimer * hugetimer;
     bool slider_extended;
     health * hl;
     score * scr;
+    bool hball;
 
     QAudioOutput *music3;
     QMediaPlayer *winsound;
@@ -53,6 +55,8 @@ public slots:
     void start();
     void activefire();
     void activeextending();
+    void activehugeball();
+    void deactivatehugeball();
 signals:
     void win();
     void lose();

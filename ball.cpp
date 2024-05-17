@@ -26,6 +26,7 @@ ball::ball(int no, QMediaPlayer *ball,QAudioOutput *m2, QMediaPlayer *brick , QA
     QObject::connect(time, SIGNAL(timeout()),this, SLOT(move()));
     time->start(15);
     reflection_cooldown = 0;
+    hball = false;
     xv = 0;
     yv = 0;
     acc=0;
@@ -164,4 +165,28 @@ void ball:: activeextending(){
         extension--;
         emit update();
     }
+}
+void ball::activehugeball(){
+    if(hugeball > 0 && !hball){
+        int xi = x();
+        int yi = y();
+        setRect(0,0,32,32);
+        setPos(xi - 8, yi - 8);
+        hugetimer = new QTimer(this);
+        hugetimer->setSingleShot(true);
+        hball = true;
+        hugetimer->start(10000);
+        QObject::connect(hugetimer, SIGNAL(timeout()), this, SLOT(deactivatehugeball));
+        hugeball--;
+        emit update();
+    }
+
+}
+void ball::deactivatehugeball(){
+    delete hugetimer;
+    hball = false;
+    int xi = x();
+    int yi = y();
+    setRect(0,0,16,16);
+    setPos(xi + 8, yi + 8);
 }

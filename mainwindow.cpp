@@ -184,6 +184,7 @@ void MainWindow::start(int x){
     if(x==5) ball_w = new ball(1233,ballsound,music2, blocksound , music6, coins, fireball, hugeball, weapons, extension);
     QObject::connect(slider_w, &slider::start, ball_w, &ball::start);
     QObject::connect(slider_w, &slider::fire, ball_w, &ball::activefire);
+    QObject::connect(slider_w, &slider::huge, ball_w, &ball::activehugeball);
     QObject::connect(slider_w, &slider::extends, this, &MainWindow::extendslider);
     QObject::connect(ball_w, &ball::update, this, &MainWindow::update);
     QObject::connect(slider_w, &slider::extends, ball_w, &ball::activeextending);

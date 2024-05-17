@@ -21,6 +21,7 @@ signals:
     void start();
     void fire();
     void extends();
+    void huge();
 
 public slots:
     void keyPressEvent(QKeyEvent * event);

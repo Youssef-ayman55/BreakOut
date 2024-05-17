@@ -35,6 +35,7 @@ void slider::keyPressEvent(QKeyEvent * event){
         else if(event->key()== Qt::Key_Space) emit start();
         else if(event->key()== Qt::Key_Z) emit fire();
         else if(event->key() == Qt::Key_Shift) v = 2;
+        else if(event->key()== Qt::Key_C) emit huge();
         else if(event->key()== Qt::Key_X){
             if(!slider_extended && extension>0){
                 emit extends();
