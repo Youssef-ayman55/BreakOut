@@ -6,6 +6,7 @@
 #include <QGraphicsRectItem>
 #include <QGraphicsTextItem>
 #include <QKeyEvent>
+#include "ball.h"
 class slider : public QObject, public QGraphicsRectItem
 {
     Q_OBJECT

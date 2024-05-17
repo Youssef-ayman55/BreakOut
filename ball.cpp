@@ -29,6 +29,7 @@ ball::ball(int no) {
     yv = 0;
     acc=0;
     des=0;
+    fireball=true;
     number=no;
     reflection_cooldown = 0;
     QAudioOutput *music2 = new QAudioOutput;
@@ -41,8 +42,6 @@ ball::ball(int no) {
     blocksound = new QMediaPlayer;
     blocksound->setAudioOutput(music5);
     blocksound->setSource(QUrl("qrc:/music/Resources/blockh.mp3"));
-
-
 }
 void ball::setup(){
     hl=new health();
@@ -93,10 +92,22 @@ void ball::collide(){
         blocks * u = dynamic_cast<blocks *>(cItems[i]);
         if(u){
             if(collidingItems().contains(u->surroundings[0]) || collidingItems().contains(u->surroundings[2])){
-                yv *= -1;
+                if(!fireball)yv *= -1;
+                else{
+                    if(u->type==2){
+                        fireball=false;
+                        yv*=-1;
+                    }
+                }
             }
             if(collidingItems().contains(u->surroundings[1]) || collidingItems().contains(u->surroundings[3])){
-                xv *= -1;
+                if(!fireball)xv *= -1;
+                else{
+                    if(u->type==2){
+                        fireball=false;
+                        xv*=-1;
+                    }
+                }
             }
             reflection_cooldown = 15;
             if(u->type==1)

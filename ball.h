@@ -17,6 +17,7 @@ private:
     int number;
     int acc;
     int des;
+    bool fireball;
     health * hl;
     score * scr;
     QAudioOutput *music2;
