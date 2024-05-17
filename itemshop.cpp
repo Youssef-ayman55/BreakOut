@@ -1,6 +1,6 @@
 #include "itemshop.h"
 #include "ui_itemshop.h"
-
+#include <QPixmap>
 ItemShop::ItemShop(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::ItemShop)
@@ -12,6 +12,19 @@ ItemShop::ItemShop(QAudioOutput *music5, QMediaPlayer *clicksound): QWidget(null
     , ui(new Ui::ItemShop),music5(music5), clicksound(clicksound)
 {
     ui->setupUi(this);
+    QPixmap pix1(":/images/Resources/fireball.png");
+    ui->fireimage->setPixmap(pix1.scaled(120,120, Qt::KeepAspectRatio));
+
+    QPixmap pix2(":/images/Resources/hugeball.png");
+    ui->hugeballimage->setPixmap(pix2.scaled(120,120, Qt::KeepAspectRatio));
+
+    QPixmap pix3(":/images/Resources/paddle.png");
+    ui->sliderimage->setPixmap(pix3.scaled(120,120, Qt::KeepAspectRatio));
+
+    QPixmap pix4(":/images/Resources/sword.png");
+    ui->weaponimage->setPixmap(pix4.scaled(120,120, Qt::KeepAspectRatio));
+
+
 }
 
 ItemShop::~ItemShop()

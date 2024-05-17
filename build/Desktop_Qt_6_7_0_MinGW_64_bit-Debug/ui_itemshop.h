@@ -25,12 +25,12 @@ public:
     QLabel *title_2;
     QGroupBox *featured;
     QGroupBox *fireball;
-    QLabel *tile;
     QPushButton *sellf;
     QPushButton *addf;
     QLabel *fireimage;
     QLabel *label_7;
     QLabel *label_8;
+    QLabel *label_9;
     QGroupBox *Hugeball;
     QLabel *label_3;
     QPushButton *sellH;
@@ -51,7 +51,7 @@ public:
     QPushButton *addS;
     QLabel *label_17;
     QLabel *label_18;
-    QLabel *fireimage_4;
+    QLabel *sliderimage;
     QLabel *label;
     QPushButton *backM;
 
@@ -120,14 +120,6 @@ public:
         font2.setFamilies({QString::fromUtf8("Showcard Gothic")});
         font2.setPointSize(10);
         fireball->setFont(font2);
-        tile = new QLabel(fireball);
-        tile->setObjectName("tile");
-        tile->setGeometry(QRect(10, 0, 101, 20));
-        QPalette palette5;
-        palette5.setBrush(QPalette::Active, QPalette::WindowText, brush1);
-        palette5.setBrush(QPalette::Inactive, QPalette::WindowText, brush1);
-        tile->setPalette(palette5);
-        tile->setFont(font2);
         sellf = new QPushButton(fireball);
         sellf->setObjectName("sellf");
         sellf->setGeometry(QRect(180, 200, 61, 29));
@@ -176,13 +168,21 @@ public:
 ""));
         fireimage = new QLabel(fireball);
         fireimage->setObjectName("fireimage");
-        fireimage->setGeometry(QRect(50, 70, 131, 111));
+        fireimage->setGeometry(QRect(70, 70, 131, 111));
         label_7 = new QLabel(fireball);
         label_7->setObjectName("label_7");
         label_7->setGeometry(QRect(90, 200, 63, 20));
         label_8 = new QLabel(fireball);
         label_8->setObjectName("label_8");
         label_8->setGeometry(QRect(10, 30, 63, 20));
+        label_9 = new QLabel(fireball);
+        label_9->setObjectName("label_9");
+        label_9->setGeometry(QRect(10, 0, 131, 20));
+        QPalette palette5;
+        palette5.setBrush(QPalette::Active, QPalette::WindowText, brush1);
+        palette5.setBrush(QPalette::Inactive, QPalette::WindowText, brush1);
+        label_9->setPalette(palette5);
+        label_9->setFont(font2);
         Hugeball = new QGroupBox(featured);
         Hugeball->setObjectName("Hugeball");
         Hugeball->setGeometry(QRect(310, 50, 250, 241));
@@ -251,7 +251,7 @@ public:
         label_12->setGeometry(QRect(10, 30, 63, 20));
         hugeballimage = new QLabel(Hugeball);
         hugeballimage->setObjectName("hugeballimage");
-        hugeballimage->setGeometry(QRect(50, 70, 131, 111));
+        hugeballimage->setGeometry(QRect(70, 70, 131, 111));
         Weapons = new QGroupBox(featured);
         Weapons->setObjectName("Weapons");
         Weapons->setGeometry(QRect(590, 50, 250, 241));
@@ -320,7 +320,7 @@ public:
         label_15->setGeometry(QRect(100, 200, 63, 20));
         weaponimage = new QLabel(Weapons);
         weaponimage->setObjectName("weaponimage");
-        weaponimage->setGeometry(QRect(50, 70, 131, 111));
+        weaponimage->setGeometry(QRect(70, 70, 131, 111));
         ExtendS = new QGroupBox(featured);
         ExtendS->setObjectName("ExtendS");
         ExtendS->setGeometry(QRect(870, 50, 250, 241));
@@ -387,9 +387,9 @@ public:
         label_18 = new QLabel(ExtendS);
         label_18->setObjectName("label_18");
         label_18->setGeometry(QRect(10, 30, 63, 20));
-        fireimage_4 = new QLabel(ExtendS);
-        fireimage_4->setObjectName("fireimage_4");
-        fireimage_4->setGeometry(QRect(50, 70, 131, 111));
+        sliderimage = new QLabel(ExtendS);
+        sliderimage->setObjectName("sliderimage");
+        sliderimage->setGeometry(QRect(70, 70, 131, 111));
         label = new QLabel(ItemShop);
         label->setObjectName("label");
         label->setGeometry(QRect(30, 220, 101, 20));
@@ -441,12 +441,12 @@ public:
         title_2->setText(QCoreApplication::translate("ItemShop", "Item Shop", nullptr));
         featured->setTitle(QCoreApplication::translate("ItemShop", "Featured", nullptr));
         fireball->setTitle(QCoreApplication::translate("ItemShop", "Fire Ball", nullptr));
-        tile->setText(QCoreApplication::translate("ItemShop", "Fire Ball", nullptr));
         sellf->setText(QCoreApplication::translate("ItemShop", "Sell", nullptr));
         addf->setText(QCoreApplication::translate("ItemShop", "Buy", nullptr));
         fireimage->setText(QString());
         label_7->setText(QCoreApplication::translate("ItemShop", "TextLabel", nullptr));
         label_8->setText(QCoreApplication::translate("ItemShop", "TextLabel", nullptr));
+        label_9->setText(QCoreApplication::translate("ItemShop", "Fire Ball", nullptr));
         Hugeball->setTitle(QCoreApplication::translate("ItemShop", "Maximize Ball", nullptr));
         label_3->setText(QCoreApplication::translate("ItemShop", "Maximize Ball", nullptr));
         sellH->setText(QCoreApplication::translate("ItemShop", "Sell", nullptr));
@@ -467,7 +467,7 @@ public:
         addS->setText(QCoreApplication::translate("ItemShop", "Buy", nullptr));
         label_17->setText(QCoreApplication::translate("ItemShop", "TextLabel", nullptr));
         label_18->setText(QCoreApplication::translate("ItemShop", "TextLabel", nullptr));
-        fireimage_4->setText(QString());
+        sliderimage->setText(QString());
         label->setText(QCoreApplication::translate("ItemShop", "Featured", nullptr));
         backM->setText(QCoreApplication::translate("ItemShop", "Back", nullptr));
     } // retranslateUi

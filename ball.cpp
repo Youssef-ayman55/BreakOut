@@ -8,7 +8,8 @@
 #include "health.h"
 #include "score.h"
 #include <QGraphicsScene>
-ball::ball(int no) {
+ball::ball(int no, QMediaPlayer *ball,QAudioOutput *m2, QMediaPlayer *brick , QAudioOutput *m6) : ballsound(ball), m2(m2),
+    blocksound(brick), m6(m6)  {
     setRect(0,0, 16, 16);
     QBrush brush;
     brush.setStyle(Qt::SolidPattern);
@@ -33,16 +34,7 @@ ball::ball(int no) {
     slider_extended=false;
     number=no;
     reflection_cooldown = 0;
-    music2 = new QAudioOutput;
-    music2->setVolume(100);
-    ballsound = new QMediaPlayer;
-    ballsound->setAudioOutput(music2);
-    ballsound->setSource(QUrl("qrc:/music/Resources/sliders.mp3"));
-    music5 = new QAudioOutput;
-    music5->setVolume(100);
-    blocksound = new QMediaPlayer;
-    blocksound->setAudioOutput(music5);
-    blocksound->setSource(QUrl("qrc:/music/Resources/blockh.mp3"));
+
 }
 void ball::setup(){
     hl=new health();

@@ -18,19 +18,34 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     this->setFixedSize(1200,800);
+
     music = new QAudioOutput;
     bgsound = new QMediaPlayer();
     music->setVolume(1);
     bgsound->setSource(QUrl("qrc:/music/Resources/bgsound.mp3"));
     bgsound->setAudioOutput(music);
-    bgsound->play();
-    connect(bgsound, &QMediaPlayer::mediaStatusChanged, this, &MainWindow::handleMediaStatusChanged);
-    bgsound->play();
+    //bgsound->play();
+    //connect(bgsound, &QMediaPlayer::mediaStatusChanged, this, &MainWindow::handleMediaStatusChanged);
+    //bgsound->play();
     music5 = new QAudioOutput;
     music5->setVolume(1);
     clicksound = new QMediaPlayer;
     clicksound->setAudioOutput(music5);
     clicksound->setSource(QUrl("qrc:/music/Resources/click.mp3"));
+
+    music2 = new QAudioOutput;
+    music2->setVolume(100);
+    ballsound = new QMediaPlayer;
+    ballsound->setAudioOutput(music2);
+    ballsound->setSource(QUrl("qrc:/music/Resources/sliders.mp3"));
+
+    music6 = new QAudioOutput;
+    music6->setVolume(100);
+    blocksound = new QMediaPlayer;
+    blocksound->setAudioOutput(music6);
+    blocksound->setSource(QUrl("qrc:/music/Resources/blockh.mp3"));
+
+
     QFile save("save.txt");
     QVector<int> input;
     if (save.open(QIODevice::ReadOnly))
@@ -164,11 +179,11 @@ void MainWindow::start(int x){
     scene->addItem(slider_w);
     slider_w->setPos(550,750);
     view->setFixedSize(1200,800);
-    if(x==1) ball_w = new ball(900);
-    if(x==2) ball_w = new ball(1020);
-    if(x==3) ball_w = new ball(1098);
-    if(x==4) ball_w = new ball(1248);
-    if(x==5) ball_w = new ball(1233);
+    if(x==1) ball_w = new ball(900,ballsound,music2, blocksound , music6);
+    if(x==2) ball_w = new ball(1020,ballsound,music2, blocksound , music6);
+    if(x==3) ball_w = new ball(1098,ballsound,music2, blocksound , music6);
+    if(x==4) ball_w = new ball(1248,ballsound,music2, blocksound , music6);
+    if(x==5) ball_w = new ball(1233,ballsound,music2, blocksound , music6);
     QObject::connect(slider_w, &slider::start, ball_w, &ball::start);
     QObject::connect(slider_w, &slider::fire, ball_w, &ball::activefire);
     QObject::connect(slider_w, &slider::extends, this, &MainWindow::extendslider);
@@ -227,7 +242,7 @@ void MainWindow::handleMediaStatusChanged(QMediaPlayer::MediaStatus status)
 void MainWindow::on_settings_clicked()
 {
     clicksound->play();
-    settings_w = new settings(music, bgsound, music5, clicksound);
+    settings_w = new settings(music, bgsound, music5, clicksound, music6, blocksound ,music2, ballsound);
     QObject::connect(settings_w, &settings::backToMW, this, &MainWindow::reset);
     setCentralWidget(settings_w);
 }

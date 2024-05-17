@@ -9,8 +9,10 @@ settings::settings(QWidget *parent)
 {
 
 }
-settings::settings(QAudioOutput *music , QMediaPlayer *bgsound, QAudioOutput * music5, QMediaPlayer * clicksound): QWidget(nullptr)
-    , ui(new Ui::settings) , bgsound(bgsound), music(music), music5(music5), clicksound(clicksound){
+settings::settings(QAudioOutput *music , QMediaPlayer *bgsound, QAudioOutput * music5, QMediaPlayer * clicksound,
+                   QAudioOutput * m6, QMediaPlayer * brick,QAudioOutput * m7, QMediaPlayer * slider): QWidget(nullptr)
+    , ui(new Ui::settings) ,  music(music), bgsound(bgsound), music5(music5), clicksound(clicksound), m6(m6), bricksound(brick),
+    m7(m7), slidersound(slider) {
     ui->setupUi(this);
     ui->bgvolume->setIcon(style()->standardIcon(QStyle::SP_MediaVolume));
     ui->back_3->setIcon(style()->standardIcon(QStyle::SP_MediaVolume));
@@ -20,6 +22,21 @@ settings::settings(QAudioOutput *music , QMediaPlayer *bgsound, QAudioOutput * m
     ui->effects->setMinimum(0);
     ui->bgslider->setValue(100 * music->volume());
     ui->effects->setValue(100 * music5->volume());
+    if(music->isMuted() == false){
+        ui->bgvolume->setIcon(style()->standardIcon(QStyle::SP_MediaVolume));
+    }
+    else
+    {
+        ui->bgvolume->setIcon(style()->standardIcon(QStyle::SP_MediaVolumeMuted));
+    }
+
+    if(music5->isMuted() == false){
+        ui->back_3->setIcon(style()->standardIcon(QStyle::SP_MediaVolume));
+    }
+    else
+    {
+        ui->back_3->setIcon(style()->standardIcon(QStyle::SP_MediaVolumeMuted));
+    }
 }
 
 settings::~settings()
@@ -29,9 +46,10 @@ settings::~settings()
 
 void settings::on_bgvolume_clicked()
 {
+
     if(music->isMuted() == false){
-        ui->bgvolume->setIcon(style()->standardIcon(QStyle::SP_MediaVolumeMuted));
         music->setMuted(true);
+        ui->bgvolume->setIcon(style()->standardIcon(QStyle::SP_MediaVolumeMuted));
     }
     else
     {
@@ -46,12 +64,16 @@ void settings::on_back_3_clicked()
     if(music5->isMuted() == false){
         ui->back_3->setIcon(style()->standardIcon(QStyle::SP_MediaVolumeMuted));
         music5->setMuted(true);
+        m6->setMuted(true);
+        m7->setMuted(true);
 
     }
     else
     {
         ui->back_3->setIcon(style()->standardIcon(QStyle::SP_MediaVolume));
         music5->setMuted(false);
+        m6->setMuted(false);
+        m7->setMuted(false);
     }
 }
 
