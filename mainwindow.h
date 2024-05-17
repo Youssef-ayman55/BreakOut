@@ -62,8 +62,14 @@ private:
     lose * lose_w;
     ItemShop * shop_w;
     settings *settings_w;
+
     QAudioOutput *music5;
     QMediaPlayer *clicksound;
+
+    QAudioOutput *music2;
+    QMediaPlayer *ballsound;
+    QAudioOutput *music6;
+    QMediaPlayer *blocksound;
     int coins;
     int current_level;
     int fireball;

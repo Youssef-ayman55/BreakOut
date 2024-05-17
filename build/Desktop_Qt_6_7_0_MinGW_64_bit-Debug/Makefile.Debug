@@ -171,6 +171,10 @@ debug/qrc_levels.cpp: ../../levels.qrc \
 		../../Resources/speaker.png \
 		../../Resources/music.png \
 		../../Resources/music2.png \
+		../../Resources/sword.png \
+		../../Resources/fireball.png \
+		../../Resources/hugeball.png \
+		../../Resources/paddle.png \
 		../../level3.txt \
 		../../level5.txt \
 		../../level4.txt \
@@ -684,6 +688,17 @@ debug/moc_itemshop.cpp: ../../itemshop.h \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/qinputmethod.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qlocale.h \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/qguiapplication_platform.h \
+		C:/Qt/6.7.0/mingw_64/include/QtMultimedia/QMediaPlayer \
+		C:/Qt/6.7.0/mingw_64/include/QtMultimedia/qmediaplayer.h \
+		C:/Qt/6.7.0/mingw_64/include/QtMultimedia/qtmultimediaglobal.h \
+		C:/Qt/6.7.0/mingw_64/include/QtMultimedia/qtmultimedia-config.h \
+		C:/Qt/6.7.0/mingw_64/include/QtMultimedia/qtmultimediaexports.h \
+		C:/Qt/6.7.0/mingw_64/include/QtMultimedia/qmediaenumdebug.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qmetaobject.h \
+		C:/Qt/6.7.0/mingw_64/include/QtMultimedia/qtaudio.h \
+		C:/Qt/6.7.0/mingw_64/include/QtMultimedia/qaudio.h \
+		C:/Qt/6.7.0/mingw_64/include/QtMultimedia/QAudioOutput \
+		C:/Qt/6.7.0/mingw_64/include/QtMultimedia/qaudiooutput.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.7.0/mingw_64/bin/moc.exe
 	C:\Qt\6.7.0\mingw_64\bin\moc.exe $(DEFINES) --include "D:/Semester 2/CS Project/BreakOut/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/debug/moc_predefs.h" -IC:/Qt/6.7.0/mingw_64/mkspecs/win32-g++ -I"D:/Semester 2/CS Project/BreakOut" -IC:/Qt/6.7.0/mingw_64/include -IC:/Qt/6.7.0/mingw_64/include/QtMultimedia -IC:/Qt/6.7.0/mingw_64/include/QtWidgets -IC:/Qt/6.7.0/mingw_64/include/QtGui -IC:/Qt/6.7.0/mingw_64/include/QtNetwork -IC:/Qt/6.7.0/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\..\itemshop.h -o debug\moc_itemshop.cpp
@@ -1323,6 +1338,7 @@ debug/moc_mainwindow.cpp: ../../mainwindow.h \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/QKeyEvent \
 		../../win.h \
 		../../lose.h \
+		../../itemshop.h \
 		../../settings.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.7.0/mingw_64/bin/moc.exe
@@ -2673,6 +2689,17 @@ debug/itemshop.o: ../../itemshop.cpp ../../itemshop.h \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/qinputmethod.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/qlocale.h \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/qguiapplication_platform.h \
+		C:/Qt/6.7.0/mingw_64/include/QtMultimedia/QMediaPlayer \
+		C:/Qt/6.7.0/mingw_64/include/QtMultimedia/qmediaplayer.h \
+		C:/Qt/6.7.0/mingw_64/include/QtMultimedia/qtmultimediaglobal.h \
+		C:/Qt/6.7.0/mingw_64/include/QtMultimedia/qtmultimedia-config.h \
+		C:/Qt/6.7.0/mingw_64/include/QtMultimedia/qtmultimediaexports.h \
+		C:/Qt/6.7.0/mingw_64/include/QtMultimedia/qmediaenumdebug.h \
+		C:/Qt/6.7.0/mingw_64/include/QtCore/qmetaobject.h \
+		C:/Qt/6.7.0/mingw_64/include/QtMultimedia/qtaudio.h \
+		C:/Qt/6.7.0/mingw_64/include/QtMultimedia/qaudio.h \
+		C:/Qt/6.7.0/mingw_64/include/QtMultimedia/QAudioOutput \
+		C:/Qt/6.7.0/mingw_64/include/QtMultimedia/qaudiooutput.h \
 		ui_itemshop.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QVariant \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QApplication \
@@ -2686,7 +2713,8 @@ debug/itemshop.o: ../../itemshop.cpp ../../itemshop.h \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/qtextdocument.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QPushButton \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qpushbutton.h \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractbutton.h
+		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/6.7.0/mingw_64/include/QtGui/QPixmap
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\itemshop.o ..\..\itemshop.cpp
 
 debug/levels.o: ../../levels.cpp ../../levels.h \
@@ -3344,9 +3372,9 @@ debug/main.o: ../../main.cpp ../../mainwindow.h \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/QKeyEvent \
 		../../win.h \
 		../../lose.h \
+		../../itemshop.h \
 		../../settings.h \
-		../../global.h \
-		../../itemshop.h
+		../../global.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\main.o ..\..\main.cpp
 
 debug/mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
@@ -3577,6 +3605,7 @@ debug/mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		C:/Qt/6.7.0/mingw_64/include/QtGui/QKeyEvent \
 		../../win.h \
 		../../lose.h \
+		../../itemshop.h \
 		../../settings.h \
 		ui_mainwindow.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QVariant \

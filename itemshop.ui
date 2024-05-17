@@ -240,52 +240,6 @@ border-color:white;
     <property name="title">
      <string>Fire Ball</string>
     </property>
-    <widget class="QLabel" name="tile">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>0</y>
-       <width>101</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="palette">
-      <palette>
-       <active>
-        <colorrole role="WindowText">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>76</red>
-           <green>255</green>
-           <blue>183</blue>
-          </color>
-         </brush>
-        </colorrole>
-       </active>
-       <inactive>
-        <colorrole role="WindowText">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>76</red>
-           <green>255</green>
-           <blue>183</blue>
-          </color>
-         </brush>
-        </colorrole>
-       </inactive>
-       <disabled/>
-      </palette>
-     </property>
-     <property name="font">
-      <font>
-       <family>Showcard Gothic</family>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>Fire Ball</string>
-     </property>
-    </widget>
     <widget class="QPushButton" name="sellf">
      <property name="geometry">
       <rect>
@@ -367,7 +321,7 @@ QPushButton::pressed {
     <widget class="QLabel" name="fireimage">
      <property name="geometry">
       <rect>
-       <x>50</x>
+       <x>70</x>
        <y>70</y>
        <width>131</width>
        <height>111</height>
@@ -401,6 +355,52 @@ QPushButton::pressed {
      </property>
      <property name="text">
       <string>TextLabel</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_9">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>0</y>
+       <width>131</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="palette">
+      <palette>
+       <active>
+        <colorrole role="WindowText">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>76</red>
+           <green>255</green>
+           <blue>183</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </active>
+       <inactive>
+        <colorrole role="WindowText">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>76</red>
+           <green>255</green>
+           <blue>183</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </inactive>
+       <disabled/>
+      </palette>
+     </property>
+     <property name="font">
+      <font>
+       <family>Showcard Gothic</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Fire Ball</string>
      </property>
     </widget>
    </widget>
@@ -602,7 +602,7 @@ QPushButton::pressed {
     <widget class="QLabel" name="hugeballimage">
      <property name="geometry">
       <rect>
-       <x>50</x>
+       <x>70</x>
        <y>70</y>
        <width>131</width>
        <height>111</height>
@@ -811,7 +811,7 @@ QPushButton::pressed {
     <widget class="QLabel" name="weaponimage">
      <property name="geometry">
       <rect>
-       <x>50</x>
+       <x>70</x>
        <y>70</y>
        <width>131</width>
        <height>111</height>
@@ -1017,10 +1017,10 @@ QPushButton::pressed {
       <string>TextLabel</string>
      </property>
     </widget>
-    <widget class="QLabel" name="fireimage_4">
+    <widget class="QLabel" name="sliderimage">
      <property name="geometry">
       <rect>
-       <x>50</x>
+       <x>70</x>
        <y>70</y>
        <width>131</width>
        <height>111</height>

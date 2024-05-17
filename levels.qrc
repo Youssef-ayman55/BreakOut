@@ -20,5 +20,9 @@
         <file>Resources/speaker.png</file>
         <file>Resources/music.png</file>
         <file>Resources/music2.png</file>
+        <file>Resources/fireball.png</file>
+        <file>Resources/hugeball.png</file>
+        <file>Resources/paddle.png</file>
+        <file>Resources/sword.png</file>
     </qresource>
 </RCC>

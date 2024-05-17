@@ -17,8 +17,13 @@ public:
     QMediaPlayer *bgsound;
     QAudioOutput *music5;
     QMediaPlayer *clicksound;
+    QAudioOutput *m6;
+    QMediaPlayer *bricksound;
+    QAudioOutput *m7;
+    QMediaPlayer *slidersound;
     explicit settings(QWidget *parent = nullptr);
-    settings(QAudioOutput *music , QMediaPlayer *bgsound, QAudioOutput * music5, QMediaPlayer * clicksound);
+    settings(QAudioOutput *music , QMediaPlayer *bgsound, QAudioOutput * music5, QMediaPlayer * clicksound,
+             QAudioOutput * m6, QMediaPlayer * brick,QAudioOutput * m7, QMediaPlayer * slider);
     ~settings();
 
 signals:
