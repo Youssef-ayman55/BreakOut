@@ -49,7 +49,7 @@ public slots:
     void startlevel3();
     void startlevel4();
     void startlevel5();
-
+    void sale();
 
 private:
     Ui::MainWindow * ui;

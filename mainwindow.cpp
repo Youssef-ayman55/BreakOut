@@ -38,13 +38,13 @@ MainWindow::MainWindow(QWidget *parent)
         QTextStream in(&save);
         while (!in.atEnd())
         {
-            int x;
-            in >> x;
-            input.push_back(x);
+            QString x;
+            x=in.readLine();
+            input.push_back(x.toInt());
         }
         save.close();
         in.flush();
-        if(input.size() != 0){
+        if(input.size() >= 6){
             current_level = input[0];
             coins = input[1];
             fireball = input[2];
@@ -65,7 +65,6 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
-    delete ui;
     QFile save("save.txt");
     QTextStream out(&save);
     if(save.open(QIODevice::WriteOnly | QIODevice::Truncate)){
@@ -78,6 +77,7 @@ MainWindow::~MainWindow()
         save.close();
         out.flush();
     }
+    delete ui;
 }
 void MainWindow::displaylevels(){
     levels_w = new levels;
@@ -99,8 +99,9 @@ void MainWindow::on_new_game_clicked()
 
 void MainWindow::displayshop()
 {
-    shop_w = new ItemShop(music5, clicksound);
+    shop_w = new ItemShop(music5, clicksound, coins, fireball, hugeball, weapons, extension);
     QObject::connect(shop_w,&ItemShop::back,this,&MainWindow::reset);
+    QObject::connect(shop_w,&ItemShop::sale,this,&MainWindow::sale);
 }
 
 void MainWindow::on_itemshop_clicked()
@@ -142,7 +143,6 @@ void MainWindow::displaywin(){
     setCentralWidget(win_w);
     QObject::connect(win_w,&win::backtolevels,this,&MainWindow::displaylevels);
     win_w->winsound->play();
-
 }
 void MainWindow::displaylose(){
     delete ball_w;
@@ -238,6 +238,14 @@ void MainWindow::extendslider(){
     int tempy=slider_w->y();
     slider_w->setRect(0,0,200,20);
     slider_w->setPos(tempx-50,tempy);
+}
+void MainWindow::sale(){
+    coins= shop_w->coins;
+    hugeball= shop_w->hugeball;
+    fireball= shop_w->fireball;
+    extension= shop_w->extension;
+    weapons = shop_w-> weapons;
+    delete shop_w;
 }
 
 
