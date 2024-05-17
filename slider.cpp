@@ -2,7 +2,9 @@
 #include "QKeyEvent"
 #include <QBrush>
 #include <QPen>
-slider::slider(int extension) : extension(extension) {
+#include "laser.h"
+#include <QGraphicsScene>
+slider::slider(int extension, int weapons) : extension(extension), weapons(weapons) {
     setRect(0, 0,100, 20);
     QBrush brush;
     brush.setStyle(Qt::SolidPattern);
@@ -36,6 +38,15 @@ void slider::keyPressEvent(QKeyEvent * event){
         else if(event->key()== Qt::Key_Z) emit fire();
         else if(event->key() == Qt::Key_Shift) v = 2;
         else if(event->key()== Qt::Key_C) emit huge();
+        else if(event->key() == Qt::Key_V){
+            if(weapons <= 0) return;
+            Laser * laser_ = new Laser;
+            scene()->addItem(laser_);
+            laser_->setPos(x()+ 25+12.5, y());
+            weapons--;
+            emit laser();
+            QObject::connect(laser_, &Laser::increase_score, this, [=](){emit increase_score();});
+        }
         else if(event->key()== Qt::Key_X){
             if(!slider_extended && extension>0){
                 emit extends();

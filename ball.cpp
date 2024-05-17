@@ -99,6 +99,14 @@ void ball::collide(){
         emit lose();
         return;
     }
+    if(des == number){
+        yv=0;
+        xv=0;
+        coins+=scr->getscore();
+        emit update();
+        emit win();
+        return;
+    }
     QList<QGraphicsItem*> cItems = collidingItems();
     for(int i = 0; i< cItems.count(); i++){
         blocks * u = dynamic_cast<blocks *>(cItems[i]);
@@ -129,14 +137,6 @@ void ball::collide(){
                 delete u;
             }
             blocksound->play();
-            if(des == number){
-                yv=0;
-                xv=0;
-                coins+=scr->getscore();
-                emit update();
-                emit win();
-                return;
-            }
             break;
         }
     }

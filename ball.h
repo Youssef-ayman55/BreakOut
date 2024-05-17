@@ -14,14 +14,11 @@ class ball : public QObject, public QGraphicsEllipseItem
 private:
     int yv;
     int xv;
-    int number;
     int acc;
-    int des;
     bool fireball;
     QTimer * hugetimer;
     bool slider_extended;
     health * hl;
-    score * scr;
     bool hball;
 
     QAudioOutput *music3;
@@ -48,6 +45,9 @@ public:
     int hugeball;
     int weapons;
     int extension;
+    int number;
+    score * scr;
+    int des;
     ~ball();
 public slots:
     void move();

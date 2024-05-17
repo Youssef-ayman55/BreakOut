@@ -14,6 +14,7 @@ SOURCES += \
     blocks.cpp \
     health.cpp \
     itemshop.cpp \
+    laser.cpp \
     levels.cpp \
     lose.cpp \
     main.cpp \
@@ -30,6 +31,7 @@ HEADERS += \
     itemshop.h \
     levels.h \
     lose.h \
+    laser.h \
     mainwindow.h \
     score.h \
     settings.h \

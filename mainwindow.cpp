@@ -172,7 +172,7 @@ void MainWindow::displaylose(){
 void MainWindow::start(int x){
     scene = new QGraphicsScene;
     view = new QGraphicsView;
-    slider_w = new slider(extension);
+    slider_w = new slider(extension, weapons);
     scene->setSceneRect(0,0,1200,800);
     scene->addItem(slider_w);
     slider_w->setPos(550,750);
@@ -193,6 +193,14 @@ void MainWindow::start(int x){
     ball_w->setup();
     QObject::connect(ball_w,&ball::win,this,&MainWindow::displaywin);
     QObject::connect(ball_w,&ball::lose,this,&MainWindow::displaylose);
+    QObject::connect(slider_w, &slider::laser, ball_w, [=](){
+        ball_w->weapons--;
+        emit ball_w->update();
+    });
+    QObject::connect(slider_w, &slider::increase_score, ball_w, [=](){
+        ball_w->scr->increase_score(1);
+        ball_w->des++;
+    });
     QFile levelsfile;
     if(x==1)levelsfile.setFileName(":/levels/level1.txt");
     if(x==2)levelsfile.setFileName(":/levels/level2.txt");

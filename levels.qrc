@@ -24,5 +24,6 @@
         <file>Resources/hugeball.png</file>
         <file>Resources/paddle.png</file>
         <file>Resources/sword.png</file>
+        <file>Resources/bullet.png</file>
     </qresource>
 </RCC>
