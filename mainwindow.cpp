@@ -108,12 +108,11 @@ void MainWindow::start(int x){
     scene->addItem(slider_w);
     slider_w->setPos(550,750);
     view->setFixedSize(1200,800);
-    //edit the number of blocks
-    if(x==1) ball_w = new ball(15*60);
-    if(x==2) ball_w = new ball(18*60);
-    if(x==3) ball_w = new ball(15*60);
-    if(x==4) ball_w = new ball(1748);
-    if(x==5) ball_w = new ball(1748);
+    if(x==1) ball_w = new ball(900);
+    if(x==2) ball_w = new ball(1020);
+    if(x==3) ball_w = new ball(1098);
+    if(x==4) ball_w = new ball(1248);
+    if(x==5) ball_w = new ball(1233);
     QObject::connect(slider_w, &slider::start, ball_w, &ball::start);
     QObject::connect(slider_w, &slider::fire, ball_w, &ball::activefire);
     QObject::connect(slider_w, &slider::extends, this, &MainWindow::extendslider);
