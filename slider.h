@@ -16,6 +16,7 @@ public:
     bool right;
     bool left;
     bool slider_extended;
+    int v;
 signals:
     void start();
     void fire();
