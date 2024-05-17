@@ -200,10 +200,10 @@ void MainWindow::start(int x){
     if(x==4)levelsfile.setFileName(":/levels/level4.txt");
     if(x==5)levelsfile.setFileName(":/levels/level5.txt");
     abilities = new QGraphicsTextItem;
-    abilities->setPlainText(QString("Fireball: ") + QString::number(fireball) +QString(" // ")
-                            + QString("Hugeball: ") + QString::number(hugeball) +QString(" // ")
-                            + QString("Weapons: ") + QString::number(weapons) +QString(" // ")
-                            + QString("Extended Slider: ") + QString::number(extension));
+    abilities->setPlainText(QString("Fireball(Z): ") + QString::number(fireball) +QString(" // ")
+                            + QString("Hugeball(C): ") + QString::number(hugeball) +QString(" // ")
+                            + QString("Weapons:(V)") + QString::number(weapons) +QString(" // ")
+                            + QString("Extended Slider(X): ") + QString::number(extension));
     abilities->setPos(300,0);
     abilities->setDefaultTextColor(Qt::white);
     abilities->setFont(QFont("times", 16));
@@ -278,10 +278,10 @@ void MainWindow::update(){
     fireball= ball_w->fball;
     extension= ball_w->extension;
     weapons = ball_w-> weapons;
-    abilities->setPlainText(QString("Fireball: ") + QString::number(fireball) +QString(" // ")
-                            + QString("Hugeball: ") + QString::number(hugeball) +QString(" // ")
-                            + QString("Weapons: ") + QString::number(weapons) +QString(" // ")
-                            + QString("Extended Slider: ") + QString::number(extension));
+    abilities->setPlainText(QString("Fireball(Z): ") + QString::number(fireball) +QString(" // ")
+                            + QString("Hugeball(C): ") + QString::number(hugeball) +QString(" // ")
+                            + QString("Weapons:(V)") + QString::number(weapons) +QString(" // ")
+                            + QString("Extended Slider(X): ") + QString::number(extension));
 }
 
 
