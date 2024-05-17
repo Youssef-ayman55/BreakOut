@@ -53,16 +53,20 @@ void ball::setup(){
 void ball::move(){
     if(x() <= 0){
         xv = -1 * xv;
+        fireball = false;
     }
     if(x() >= 1200 - 15){
         xv = -1 * xv;
+        fireball = false;
     }
     if(y() <= 0){
         yv = -1* yv;
+        fireball = false;
     }
     if(y()>800){
         yv = 0;
         hl->decrease_health();
+        fireball = false;
         setPos(592.5, 710);
         xv = 0;
         yv = 0;
@@ -88,8 +92,6 @@ void ball::move(){
                 xv /= 16;
                 yv = -1 * yv;
             }
-
-
             acc=0;
             fireball=false;
         }
@@ -102,6 +104,7 @@ void ball::collide(){
     }
     if(hl->gethealth()<=0){
         emit lose();
+        return;
     }
     QList<QGraphicsItem*> cItems = collidingItems();
     for(int i = 0; i< cItems.count(); i++){
@@ -137,6 +140,7 @@ void ball::collide(){
                 yv=0;
                 xv=0;
                 emit win();
+                return;
             }
             break;
         }
