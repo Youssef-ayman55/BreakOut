@@ -34,15 +34,11 @@ private slots:
     void retrylevel1();
     void displaylevels();
     void start(int x);
-<<<<<<< HEAD
     void on_settings_clicked();
 
 public slots:
-=======
-    void displaySettingsWindow();
     void extendslider();
     public slots:
->>>>>>> 8cdef5423236452352bc92653d9f147969430cb2
     void reset();
     void displaywin();
     void displaylose();

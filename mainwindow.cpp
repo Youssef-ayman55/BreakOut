@@ -168,7 +168,6 @@ void MainWindow::handleMediaStatusChanged(QMediaPlayer::MediaStatus status)
     }
 }
 
-<<<<<<< HEAD
 
 void MainWindow::on_settings_clicked()
 {
@@ -178,11 +177,10 @@ void MainWindow::on_settings_clicked()
     setCentralWidget(settings_w);
 }
 
-=======
 void MainWindow::extendslider(){
     int tempx=slider_w->x();
     int tempy=slider_w->y();
     slider_w->setRect(0,0,200,20);
     slider_w->setPos(tempx-50,tempy);
 }
->>>>>>> 8cdef5423236452352bc92653d9f147969430cb2
+
