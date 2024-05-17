@@ -9,20 +9,19 @@
 #include <QFile>
 #include <QTextStream>
 #include <QGraphicsScene>
+#include "settings.h"
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
-    QAudioOutput *music = new QAudioOutput;
-    music->setVolume(100);
-    bgsound = new QMediaPlayer;
-    bgsound->setAudioOutput(music);
+    ui->setupUi(this);
+    this->setFixedSize(1200,800);
+    music = new QAudioOutput;
+    bgsound = new QMediaPlayer();
     bgsound->setSource(QUrl("qrc:/music/Resources/bgsound.mp3"));
-    //bgsound->play();
-
+    bgsound->play();
     connect(bgsound, &QMediaPlayer::mediaStatusChanged, this, &MainWindow::handleMediaStatusChanged);
-    //bgsound->play();
-
+    bgsound->play();
 
     QAudioOutput *music5 = new QAudioOutput;
     music5->setVolume(100);
@@ -30,8 +29,8 @@ MainWindow::MainWindow(QWidget *parent)
     clicksound->setAudioOutput(music5);
     clicksound->setSource(QUrl("qrc:/music/Resources/click.mp3"));
 
-    ui->setupUi(this);
-    this->setFixedSize(1200,800);
+    connect(ui->settings, &QPushButton::clicked, this, &MainWindow::displaySettingsWindow);
+
     coins=0;
 }
 
@@ -74,9 +73,16 @@ void MainWindow::startlevel5(){
     start(5);
 }
 
+
 void MainWindow:: retrylevel1(){
     startlevel1();
 }
+void MainWindow::displaySettingsWindow() {
+    settings_w=new settings;
+    setCentralWidget(settings_w);
+    connect(settings_w, &settings::backToMW, this, &MainWindow::reset);
+}
+
 void MainWindow::displaywin(){
     delete ball_w;
     delete slider_w;
@@ -155,13 +161,15 @@ void MainWindow::start(int x){
     slider_w->setFocus();
 }
 
+
+
 void MainWindow::handleMediaStatusChanged(QMediaPlayer::MediaStatus status)
 {
     if (status == QMediaPlayer::EndOfMedia)
     {
         // Restart playback when the end of media is reached
-        bgsound->setPosition(0);
-        bgsound->play();
+        settings_w->bgsound->setPosition(0);
+        settings_w->bgsound->play();
     }
 }
 

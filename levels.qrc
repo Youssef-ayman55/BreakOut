@@ -8,10 +8,17 @@
     </qresource>
     <qresource prefix="/music">
         <file>Resources/bgsound.mp3</file>
-        <file>Resources/blockh.mp3</file>
         <file>Resources/click.mp3</file>
         <file>Resources/lostsound.mp3</file>
-        <file>Resources/slidderh.mp3</file>
         <file>Resources/winsound.mp3</file>
+        <file>Resources/purchase.mp3</file>
+        <file>Resources/sliders.mp3</file>
+        <file>Resources/wallsound.mp3</file>
+        <file>Resources/blockh.mp3</file>
+    </qresource>
+    <qresource prefix="/images">
+        <file>Resources/speaker.png</file>
+        <file>Resources/music.png</file>
+        <file>Resources/music2.png</file>
     </qresource>
 </RCC>

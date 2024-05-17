@@ -35,7 +35,7 @@ ball::ball(int no) {
     music2->setVolume(100);
     ballsound = new QMediaPlayer;
     ballsound->setAudioOutput(music2);
-    ballsound->setSource(QUrl("qrc:/music/Resources/slidderh.mp3"));
+    ballsound->setSource(QUrl("qrc:/music/Resources/sliders.mp3"));
     QAudioOutput *music5 = new QAudioOutput;
     music5->setVolume(100);
     blocksound = new QMediaPlayer;
@@ -103,9 +103,9 @@ void ball::collide(){
             {
                 scr->increase_score(++acc);
                 des++;
-                blocksound->play();
                 delete u;
             }
+            blocksound->play();
             if(des == number){
                 yv=0;
                 xv=0;

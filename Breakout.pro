@@ -18,6 +18,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     score.cpp \
+    settings.cpp \
     slider.cpp \
     win.cpp
 
@@ -29,6 +30,7 @@ HEADERS += \
     lose.h \
     mainwindow.h \
     score.h \
+    settings.h \
     slider.h \
     win.h
 
@@ -36,6 +38,7 @@ FORMS += \
     levels.ui \
     lose.ui \
     mainwindow.ui \
+    settings.ui \
     win.ui
 
 # Default rules for deployment.

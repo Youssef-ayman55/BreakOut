@@ -8,6 +8,7 @@
 #include "slider.h"
 #include "win.h"
 #include "lose.h"
+#include "settings.h"
 #include <QAudioOutput>
 #include <QMediaPlayer>
 QT_BEGIN_NAMESPACE
@@ -21,6 +22,8 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
+    QAudioOutput *music;
+    QMediaPlayer *bgsound;
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     void handleMediaStatusChanged(QMediaPlayer::MediaStatus status);
@@ -30,7 +33,9 @@ private slots:
     void retrylevel1();
     void displaylevels();
     void start(int x);
-public slots:
+    void displaySettingsWindow();
+
+    public slots:
     void reset();
     void displaywin();
     void displaylose();
@@ -39,6 +44,7 @@ public slots:
     void startlevel3();
     void startlevel4();
     void startlevel5();
+
 
 private:
     Ui::MainWindow * ui;
@@ -49,8 +55,7 @@ private:
     ball * ball_w;
     win * win_w;
     lose * lose_w;
-    QAudioOutput *music;
-    QMediaPlayer *bgsound;
+    settings *settings_w;
     QAudioOutput *music5;
     QMediaPlayer *clicksound;
     int coins;
