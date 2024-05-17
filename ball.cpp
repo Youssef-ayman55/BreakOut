@@ -84,7 +84,8 @@ void ball::move(){
                 xv += dx;
                 xv /= 16;
                 yv = -1 * yv;
-            }else{
+            }
+            else{
                 double centerball = x()+ 8;
                 double centerslider = z->x() +100;
                 double dx = centerball -centerslider;

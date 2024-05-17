@@ -10,6 +10,8 @@
 #include <QTextStream>
 #include <QGraphicsScene>
 #include "settings.h"
+#include <QFile>
+#include <QTextStream>
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -29,12 +31,53 @@ MainWindow::MainWindow(QWidget *parent)
     clicksound = new QMediaPlayer;
     clicksound->setAudioOutput(music5);
     clicksound->setSource(QUrl("qrc:/music/Resources/click.mp3"));
-    coins=0;
+    QFile save("save.txt");
+    QVector<int> input;
+    if (save.open(QIODevice::ReadOnly))
+    {
+        QTextStream in(&save);
+        while (!in.atEnd())
+        {
+            int x;
+            in >> x;
+            input.push_back(x);
+        }
+        save.close();
+        in.flush();
+        if(input.size() != 0){
+            current_level = input[0];
+            coins = input[1];
+            fireball = input[2];
+            weapons = input[3];
+            hugeball = input[4];
+            extension = input[5];
+        }
+        else{
+            current_level = 1;
+            coins = 0;
+            fireball = 0;
+            weapons = 0;
+            hugeball = 0;
+            extension = 0;
+        }
+    }
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+    QFile save("save.txt");
+    QTextStream out(&save);
+    if(save.open(QIODevice::WriteOnly | QIODevice::Truncate)){
+        out << current_level << '\n';
+        out << coins << '\n';
+        out << fireball << '\n';
+        out << weapons << '\n';
+        out << hugeball << '\n';
+        out << extension << '\n';
+        save.close();
+        out.flush();
+    }
 }
 void MainWindow::displaylevels(){
     levels_w = new levels;

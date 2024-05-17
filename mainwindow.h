@@ -24,7 +24,6 @@ class MainWindow : public QMainWindow
 public:
     QAudioOutput *music;
     QMediaPlayer *bgsound;
-
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     void handleMediaStatusChanged(QMediaPlayer::MediaStatus status);
@@ -62,5 +61,10 @@ private:
     QAudioOutput *music5;
     QMediaPlayer *clicksound;
     int coins;
+    int current_level;
+    int fireball;
+    int hugeball;
+    int weapons;
+    int extension;
 };
 #endif // MAINWINDOW_H
