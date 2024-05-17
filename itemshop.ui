@@ -226,28 +226,8 @@ border-color:white;
     </property>
     <property name="palette">
      <palette>
-      <active>
-       <colorrole role="WindowText">
-        <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>255</red>
-          <green>32</green>
-          <blue>78</blue>
-         </color>
-        </brush>
-       </colorrole>
-      </active>
-      <inactive>
-       <colorrole role="WindowText">
-        <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>255</red>
-          <green>32</green>
-          <blue>78</blue>
-         </color>
-        </brush>
-       </colorrole>
-      </inactive>
+      <active/>
+      <inactive/>
       <disabled/>
      </palette>
     </property>
@@ -309,27 +289,79 @@ border-color:white;
     <widget class="QPushButton" name="sellf">
      <property name="geometry">
       <rect>
-       <x>150</x>
+       <x>182</x>
        <y>140</y>
-       <width>93</width>
-       <height>29</height>
+       <width>61</width>
+       <height>31</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Showcard Gothic</family>
+       <pointsize>-1</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    background-color: #1e6649;
+    border-style: solid;
+    color: #4cffb7;
+    border-width: 5px;
+    border-radius: 20px;
+    border-color: #4cffb7;
+    font-size: 10px; /* Corrected from 'font: 48px' */
+    padding: 6px;
+    background-image: url(qrc:/image/Resources/plus.png); /* Path to your image */
+    background-repeat: no-repeat;
+    background-position: center;
+}
+QPushButton::pressed {
+    background-color: #1abc9c; /* Background color when pressed */
+}
+
+</string>
+     </property>
      <property name="text">
-      <string>PushButton</string>
+      <string>Sell</string>
      </property>
     </widget>
     <widget class="QPushButton" name="addf">
      <property name="geometry">
       <rect>
-       <x>150</x>
+       <x>182</x>
        <y>110</y>
-       <width>93</width>
+       <width>61</width>
        <height>29</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Showcard Gothic</family>
+       <pointsize>-1</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    background-color: #1e6649;
+    border-style: solid;
+    color: #4cffb7;
+    border-width: 5px;
+    border-radius: 20px;
+    border-color: #4cffb7;
+    font-size: 10px; /* Corrected from 'font: 48px' */
+    padding: 6px;
+    background-image: url(qrc:/image/Resources/plus.png); /* Path to your image */
+    background-repeat: no-repeat;
+    background-position: center;
+}
+QPushButton::pressed {
+    background-color: #1abc9c; /* Background color when pressed */
+}
+
+</string>
+     </property>
      <property name="text">
-      <string>PushButton</string>
+      <string>Buy</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_7">
@@ -466,27 +498,79 @@ border-color:white;
     <widget class="QPushButton" name="sellH">
      <property name="geometry">
       <rect>
-       <x>150</x>
+       <x>182</x>
        <y>140</y>
-       <width>93</width>
+       <width>61</width>
        <height>29</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Showcard Gothic</family>
+       <pointsize>-1</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    background-color: #1e6649;
+    border-style: solid;
+    color: #4cffb7;
+    border-width: 5px;
+    border-radius: 20px;
+    border-color: #4cffb7;
+    font-size: 10px; /* Corrected from 'font: 48px' */
+    padding: 6px;
+    background-image: url(qrc:/image/Resources/plus.png); /* Path to your image */
+    background-repeat: no-repeat;
+    background-position: center;
+}
+QPushButton::pressed {
+    background-color: #1abc9c; /* Background color when pressed */
+}
+
+</string>
+     </property>
      <property name="text">
-      <string>PushButton</string>
+      <string>Sell</string>
      </property>
     </widget>
     <widget class="QPushButton" name="addH">
      <property name="geometry">
       <rect>
-       <x>150</x>
+       <x>182</x>
        <y>110</y>
-       <width>93</width>
+       <width>61</width>
        <height>29</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Showcard Gothic</family>
+       <pointsize>-1</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    background-color: #1e6649;
+    border-style: solid;
+    color: #4cffb7;
+    border-width: 5px;
+    border-radius: 20px;
+    border-color: #4cffb7;
+    font-size: 10px; /* Corrected from 'font: 48px' */
+    padding: 6px;
+    background-image: url(qrc:/image/Resources/plus.png); /* Path to your image */
+    background-repeat: no-repeat;
+    background-position: center;
+}
+QPushButton::pressed {
+    background-color: #1abc9c; /* Background color when pressed */
+}
+
+</string>
+     </property>
      <property name="text">
-      <string>PushButton</string>
+      <string>Buy</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_10">
@@ -623,27 +707,79 @@ border-color:white;
     <widget class="QPushButton" name="addW">
      <property name="geometry">
       <rect>
-       <x>150</x>
+       <x>180</x>
        <y>110</y>
-       <width>93</width>
+       <width>61</width>
        <height>29</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Showcard Gothic</family>
+       <pointsize>-1</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    background-color: #1e6649;
+    border-style: solid;
+    color: #4cffb7;
+    border-width: 5px;
+    border-radius: 20px;
+    border-color: #4cffb7;
+    font-size: 10px; /* Corrected from 'font: 48px' */
+    padding: 6px;
+    background-image: url(qrc:/image/Resources/plus.png); /* Path to your image */
+    background-repeat: no-repeat;
+    background-position: center;
+}
+QPushButton::pressed {
+    background-color: #1abc9c; /* Background color when pressed */
+}
+
+</string>
+     </property>
      <property name="text">
-      <string>PushButton</string>
+      <string>Buy</string>
      </property>
     </widget>
     <widget class="QPushButton" name="sellW">
      <property name="geometry">
       <rect>
-       <x>150</x>
+       <x>180</x>
        <y>140</y>
-       <width>93</width>
+       <width>61</width>
        <height>29</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Showcard Gothic</family>
+       <pointsize>-1</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    background-color: #1e6649;
+    border-style: solid;
+    color: #4cffb7;
+    border-width: 5px;
+    border-radius: 20px;
+    border-color: #4cffb7;
+    font-size: 10px; /* Corrected from 'font: 48px' */
+    padding: 6px;
+    background-image: url(qrc:/image/Resources/plus.png); /* Path to your image */
+    background-repeat: no-repeat;
+    background-position: center;
+}
+QPushButton::pressed {
+    background-color: #1abc9c; /* Background color when pressed */
+}
+
+</string>
+     </property>
      <property name="text">
-      <string>PushButton</string>
+      <string>Sell</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_13">
@@ -780,27 +916,79 @@ border-color:white;
     <widget class="QPushButton" name="sellS">
      <property name="geometry">
       <rect>
-       <x>150</x>
+       <x>180</x>
        <y>140</y>
-       <width>93</width>
+       <width>61</width>
        <height>29</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Showcard Gothic</family>
+       <pointsize>-1</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    background-color: #1e6649;
+    border-style: solid;
+    color: #4cffb7;
+    border-width: 5px;
+    border-radius: 20px;
+    border-color: #4cffb7;
+    font-size: 10px; /* Corrected from 'font: 48px' */
+    padding: 6px;
+    background-image: url(qrc:/image/Resources/plus.png); /* Path to your image */
+    background-repeat: no-repeat;
+    background-position: center;
+}
+QPushButton::pressed {
+    background-color: #1abc9c; /* Background color when pressed */
+}
+
+</string>
+     </property>
      <property name="text">
-      <string>PushButton</string>
+      <string>Sell</string>
      </property>
     </widget>
     <widget class="QPushButton" name="addS">
      <property name="geometry">
       <rect>
-       <x>150</x>
+       <x>180</x>
        <y>110</y>
-       <width>93</width>
+       <width>61</width>
        <height>29</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Showcard Gothic</family>
+       <pointsize>-1</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    background-color: #1e6649;
+    border-style: solid;
+    color: #4cffb7;
+    border-width: 5px;
+    border-radius: 20px;
+    border-color: #4cffb7;
+    font-size: 10px; /* Corrected from 'font: 48px' */
+    padding: 6px;
+    background-image: url(qrc:/image/Resources/plus.png); /* Path to your image */
+    background-repeat: no-repeat;
+    background-position: center;
+}
+QPushButton::pressed {
+    background-color: #1abc9c; /* Background color when pressed */
+}
+
+</string>
+     </property>
      <property name="text">
-      <string>PushButton</string>
+      <string>Buy</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_16">

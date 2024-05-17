@@ -162,11 +162,11 @@ void MainWindow::handleMediaStatusChanged(QMediaPlayer::MediaStatus status)
 {
     if (status == QMediaPlayer::EndOfMedia)
     {
-        // Restart playback when the end of media is reached
-        settings_w->bgsound->setPosition(0);
-        settings_w->bgsound->play();
+        bgsound->setPosition(0);
+        bgsound->play();
     }
 }
+
 
 
 void MainWindow::on_settings_clicked()

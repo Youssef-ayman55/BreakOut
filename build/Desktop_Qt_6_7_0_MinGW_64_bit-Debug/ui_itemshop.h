@@ -115,8 +115,6 @@ public:
         fireball->setObjectName("fireball");
         fireball->setGeometry(QRect(30, 50, 250, 241));
         QPalette palette4;
-        palette4.setBrush(QPalette::Active, QPalette::WindowText, brush2);
-        palette4.setBrush(QPalette::Inactive, QPalette::WindowText, brush2);
         fireball->setPalette(palette4);
         QFont font2;
         font2.setFamilies({QString::fromUtf8("Showcard Gothic")});
@@ -132,10 +130,50 @@ public:
         tile->setFont(font2);
         sellf = new QPushButton(fireball);
         sellf->setObjectName("sellf");
-        sellf->setGeometry(QRect(150, 140, 93, 29));
+        sellf->setGeometry(QRect(182, 140, 61, 31));
+        QFont font3;
+        font3.setFamilies({QString::fromUtf8("Showcard Gothic")});
+        sellf->setFont(font3);
+        sellf->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: #1e6649;\n"
+"    border-style: solid;\n"
+"    color: #4cffb7;\n"
+"    border-width: 5px;\n"
+"    border-radius: 20px;\n"
+"    border-color: #4cffb7;\n"
+"    font-size: 10px; /* Corrected from 'font: 48px' */\n"
+"    padding: 6px;\n"
+"    background-image: url(qrc:/image/Resources/plus.png); /* Path to your image */\n"
+"    background-repeat: no-repeat;\n"
+"    background-position: center;\n"
+"}\n"
+"QPushButton::pressed {\n"
+"    background-color: #1abc9c; /* Background color when pressed */\n"
+"}\n"
+"\n"
+""));
         addf = new QPushButton(fireball);
         addf->setObjectName("addf");
-        addf->setGeometry(QRect(150, 110, 93, 29));
+        addf->setGeometry(QRect(182, 110, 61, 29));
+        addf->setFont(font3);
+        addf->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: #1e6649;\n"
+"    border-style: solid;\n"
+"    color: #4cffb7;\n"
+"    border-width: 5px;\n"
+"    border-radius: 20px;\n"
+"    border-color: #4cffb7;\n"
+"    font-size: 10px; /* Corrected from 'font: 48px' */\n"
+"    padding: 6px;\n"
+"    background-image: url(qrc:/image/Resources/plus.png); /* Path to your image */\n"
+"    background-repeat: no-repeat;\n"
+"    background-position: center;\n"
+"}\n"
+"QPushButton::pressed {\n"
+"    background-color: #1abc9c; /* Background color when pressed */\n"
+"}\n"
+"\n"
+""));
         label_7 = new QLabel(fireball);
         label_7->setObjectName("label_7");
         label_7->setGeometry(QRect(10, 140, 63, 20));
@@ -163,10 +201,48 @@ public:
         label_3->setFont(font2);
         sellH = new QPushButton(Hugeball);
         sellH->setObjectName("sellH");
-        sellH->setGeometry(QRect(150, 140, 93, 29));
+        sellH->setGeometry(QRect(182, 140, 61, 29));
+        sellH->setFont(font3);
+        sellH->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: #1e6649;\n"
+"    border-style: solid;\n"
+"    color: #4cffb7;\n"
+"    border-width: 5px;\n"
+"    border-radius: 20px;\n"
+"    border-color: #4cffb7;\n"
+"    font-size: 10px; /* Corrected from 'font: 48px' */\n"
+"    padding: 6px;\n"
+"    background-image: url(qrc:/image/Resources/plus.png); /* Path to your image */\n"
+"    background-repeat: no-repeat;\n"
+"    background-position: center;\n"
+"}\n"
+"QPushButton::pressed {\n"
+"    background-color: #1abc9c; /* Background color when pressed */\n"
+"}\n"
+"\n"
+""));
         addH = new QPushButton(Hugeball);
         addH->setObjectName("addH");
-        addH->setGeometry(QRect(150, 110, 93, 29));
+        addH->setGeometry(QRect(182, 110, 61, 29));
+        addH->setFont(font3);
+        addH->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: #1e6649;\n"
+"    border-style: solid;\n"
+"    color: #4cffb7;\n"
+"    border-width: 5px;\n"
+"    border-radius: 20px;\n"
+"    border-color: #4cffb7;\n"
+"    font-size: 10px; /* Corrected from 'font: 48px' */\n"
+"    padding: 6px;\n"
+"    background-image: url(qrc:/image/Resources/plus.png); /* Path to your image */\n"
+"    background-repeat: no-repeat;\n"
+"    background-position: center;\n"
+"}\n"
+"QPushButton::pressed {\n"
+"    background-color: #1abc9c; /* Background color when pressed */\n"
+"}\n"
+"\n"
+""));
         label_10 = new QLabel(Hugeball);
         label_10->setObjectName("label_10");
         label_10->setGeometry(QRect(20, 160, 63, 20));
@@ -194,10 +270,48 @@ public:
         label_5->setFont(font2);
         addW = new QPushButton(Weapons);
         addW->setObjectName("addW");
-        addW->setGeometry(QRect(150, 110, 93, 29));
+        addW->setGeometry(QRect(180, 110, 61, 29));
+        addW->setFont(font3);
+        addW->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: #1e6649;\n"
+"    border-style: solid;\n"
+"    color: #4cffb7;\n"
+"    border-width: 5px;\n"
+"    border-radius: 20px;\n"
+"    border-color: #4cffb7;\n"
+"    font-size: 10px; /* Corrected from 'font: 48px' */\n"
+"    padding: 6px;\n"
+"    background-image: url(qrc:/image/Resources/plus.png); /* Path to your image */\n"
+"    background-repeat: no-repeat;\n"
+"    background-position: center;\n"
+"}\n"
+"QPushButton::pressed {\n"
+"    background-color: #1abc9c; /* Background color when pressed */\n"
+"}\n"
+"\n"
+""));
         sellW = new QPushButton(Weapons);
         sellW->setObjectName("sellW");
-        sellW->setGeometry(QRect(150, 140, 93, 29));
+        sellW->setGeometry(QRect(180, 140, 61, 29));
+        sellW->setFont(font3);
+        sellW->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: #1e6649;\n"
+"    border-style: solid;\n"
+"    color: #4cffb7;\n"
+"    border-width: 5px;\n"
+"    border-radius: 20px;\n"
+"    border-color: #4cffb7;\n"
+"    font-size: 10px; /* Corrected from 'font: 48px' */\n"
+"    padding: 6px;\n"
+"    background-image: url(qrc:/image/Resources/plus.png); /* Path to your image */\n"
+"    background-repeat: no-repeat;\n"
+"    background-position: center;\n"
+"}\n"
+"QPushButton::pressed {\n"
+"    background-color: #1abc9c; /* Background color when pressed */\n"
+"}\n"
+"\n"
+""));
         label_13 = new QLabel(Weapons);
         label_13->setObjectName("label_13");
         label_13->setGeometry(QRect(20, 160, 63, 20));
@@ -225,10 +339,48 @@ public:
         label_6->setFont(font2);
         sellS = new QPushButton(ExtendS);
         sellS->setObjectName("sellS");
-        sellS->setGeometry(QRect(150, 140, 93, 29));
+        sellS->setGeometry(QRect(180, 140, 61, 29));
+        sellS->setFont(font3);
+        sellS->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: #1e6649;\n"
+"    border-style: solid;\n"
+"    color: #4cffb7;\n"
+"    border-width: 5px;\n"
+"    border-radius: 20px;\n"
+"    border-color: #4cffb7;\n"
+"    font-size: 10px; /* Corrected from 'font: 48px' */\n"
+"    padding: 6px;\n"
+"    background-image: url(qrc:/image/Resources/plus.png); /* Path to your image */\n"
+"    background-repeat: no-repeat;\n"
+"    background-position: center;\n"
+"}\n"
+"QPushButton::pressed {\n"
+"    background-color: #1abc9c; /* Background color when pressed */\n"
+"}\n"
+"\n"
+""));
         addS = new QPushButton(ExtendS);
         addS->setObjectName("addS");
-        addS->setGeometry(QRect(150, 110, 93, 29));
+        addS->setGeometry(QRect(180, 110, 61, 29));
+        addS->setFont(font3);
+        addS->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: #1e6649;\n"
+"    border-style: solid;\n"
+"    color: #4cffb7;\n"
+"    border-width: 5px;\n"
+"    border-radius: 20px;\n"
+"    border-color: #4cffb7;\n"
+"    font-size: 10px; /* Corrected from 'font: 48px' */\n"
+"    padding: 6px;\n"
+"    background-image: url(qrc:/image/Resources/plus.png); /* Path to your image */\n"
+"    background-repeat: no-repeat;\n"
+"    background-position: center;\n"
+"}\n"
+"QPushButton::pressed {\n"
+"    background-color: #1abc9c; /* Background color when pressed */\n"
+"}\n"
+"\n"
+""));
         label_16 = new QLabel(ExtendS);
         label_16->setObjectName("label_16");
         label_16->setGeometry(QRect(0, 170, 63, 20));
@@ -249,11 +401,11 @@ public:
         backM = new QPushButton(ItemShop);
         backM->setObjectName("backM");
         backM->setGeometry(QRect(20, 670, 171, 81));
-        QFont font3;
-        font3.setFamilies({QString::fromUtf8("Showcard Gothic")});
-        font3.setBold(false);
-        font3.setItalic(false);
-        backM->setFont(font3);
+        QFont font4;
+        font4.setFamilies({QString::fromUtf8("Showcard Gothic")});
+        font4.setBold(false);
+        font4.setItalic(false);
+        backM->setFont(font4);
         backM->setStyleSheet(QString::fromUtf8(" background-color: rgb(93, 14, 65);\n"
 "    border-style: solid;\n"
 "    color: rgb(255, 32, 78);\n"
@@ -282,29 +434,29 @@ public:
         featured->setTitle(QCoreApplication::translate("ItemShop", "Featured", nullptr));
         fireball->setTitle(QCoreApplication::translate("ItemShop", "Fire Ball", nullptr));
         tile->setText(QCoreApplication::translate("ItemShop", "Fire Ball", nullptr));
-        sellf->setText(QCoreApplication::translate("ItemShop", "PushButton", nullptr));
-        addf->setText(QCoreApplication::translate("ItemShop", "PushButton", nullptr));
+        sellf->setText(QCoreApplication::translate("ItemShop", "Sell", nullptr));
+        addf->setText(QCoreApplication::translate("ItemShop", "Buy", nullptr));
         label_7->setText(QCoreApplication::translate("ItemShop", "TextLabel", nullptr));
         label_8->setText(QCoreApplication::translate("ItemShop", "TextLabel", nullptr));
         label_9->setText(QCoreApplication::translate("ItemShop", "TextLabel", nullptr));
         Hugeball->setTitle(QCoreApplication::translate("ItemShop", "Maximize Ball", nullptr));
         label_3->setText(QCoreApplication::translate("ItemShop", "Maximize Ball", nullptr));
-        sellH->setText(QCoreApplication::translate("ItemShop", "PushButton", nullptr));
-        addH->setText(QCoreApplication::translate("ItemShop", "PushButton", nullptr));
+        sellH->setText(QCoreApplication::translate("ItemShop", "Sell", nullptr));
+        addH->setText(QCoreApplication::translate("ItemShop", "Buy", nullptr));
         label_10->setText(QCoreApplication::translate("ItemShop", "TextLabel", nullptr));
         label_11->setText(QCoreApplication::translate("ItemShop", "TextLabel", nullptr));
         label_12->setText(QCoreApplication::translate("ItemShop", "TextLabel", nullptr));
         Weapons->setTitle(QCoreApplication::translate("ItemShop", "Weapons", nullptr));
         label_5->setText(QCoreApplication::translate("ItemShop", "Weapons", nullptr));
-        addW->setText(QCoreApplication::translate("ItemShop", "PushButton", nullptr));
-        sellW->setText(QCoreApplication::translate("ItemShop", "PushButton", nullptr));
+        addW->setText(QCoreApplication::translate("ItemShop", "Buy", nullptr));
+        sellW->setText(QCoreApplication::translate("ItemShop", "Sell", nullptr));
         label_13->setText(QCoreApplication::translate("ItemShop", "TextLabel", nullptr));
         label_14->setText(QCoreApplication::translate("ItemShop", "TextLabel", nullptr));
         label_15->setText(QCoreApplication::translate("ItemShop", "TextLabel", nullptr));
         ExtendS->setTitle(QCoreApplication::translate("ItemShop", "Extend Slider", nullptr));
         label_6->setText(QCoreApplication::translate("ItemShop", "Extend Slider", nullptr));
-        sellS->setText(QCoreApplication::translate("ItemShop", "PushButton", nullptr));
-        addS->setText(QCoreApplication::translate("ItemShop", "PushButton", nullptr));
+        sellS->setText(QCoreApplication::translate("ItemShop", "Sell", nullptr));
+        addS->setText(QCoreApplication::translate("ItemShop", "Buy", nullptr));
         label_16->setText(QCoreApplication::translate("ItemShop", "TextLabel", nullptr));
         label_17->setText(QCoreApplication::translate("ItemShop", "TextLabel", nullptr));
         label_18->setText(QCoreApplication::translate("ItemShop", "TextLabel", nullptr));
