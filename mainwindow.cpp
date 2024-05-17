@@ -11,7 +11,8 @@
 #include <QGraphicsScene>
 #include "settings.h"
 #include <QFile>
-#include <QTextStream>
+#include <QGraphicsTextItem>
+#include <QFont>
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -24,9 +25,9 @@ MainWindow::MainWindow(QWidget *parent)
     music->setVolume(1);
     bgsound->setSource(QUrl("qrc:/music/Resources/bgsound.mp3"));
     bgsound->setAudioOutput(music);
-    //bgsound->play();
-    //connect(bgsound, &QMediaPlayer::mediaStatusChanged, this, &MainWindow::handleMediaStatusChanged);
-    //bgsound->play();
+    bgsound->play();
+    connect(bgsound, &QMediaPlayer::mediaStatusChanged, this, &MainWindow::handleMediaStatusChanged);
+    bgsound->play();
     music5 = new QAudioOutput;
     music5->setVolume(1);
     clicksound = new QMediaPlayer;
@@ -44,8 +45,6 @@ MainWindow::MainWindow(QWidget *parent)
     blocksound = new QMediaPlayer;
     blocksound->setAudioOutput(music6);
     blocksound->setSource(QUrl("qrc:/music/Resources/blockh.mp3"));
-
-
     QFile save("save.txt");
     QVector<int> input;
     if (save.open(QIODevice::ReadOnly))
@@ -69,7 +68,7 @@ MainWindow::MainWindow(QWidget *parent)
         }
         else{
             current_level = 1;
-            coins = 0;
+            coins = 3000;
             fireball = 0;
             weapons = 0;
             hugeball = 0;
@@ -144,7 +143,6 @@ void MainWindow::startlevel5(){
     start(5);
 }
 
-
 void MainWindow:: retrylevel1(){
     startlevel1();
 }
@@ -174,19 +172,20 @@ void MainWindow::displaylose(){
 void MainWindow::start(int x){
     scene = new QGraphicsScene;
     view = new QGraphicsView;
-    slider_w = new slider;
+    slider_w = new slider(extension);
     scene->setSceneRect(0,0,1200,800);
     scene->addItem(slider_w);
     slider_w->setPos(550,750);
     view->setFixedSize(1200,800);
-    if(x==1) ball_w = new ball(900,ballsound,music2, blocksound , music6);
-    if(x==2) ball_w = new ball(1020,ballsound,music2, blocksound , music6);
-    if(x==3) ball_w = new ball(1098,ballsound,music2, blocksound , music6);
-    if(x==4) ball_w = new ball(1248,ballsound,music2, blocksound , music6);
-    if(x==5) ball_w = new ball(1233,ballsound,music2, blocksound , music6);
+    if(x==1) ball_w = new ball(900,ballsound,music2, blocksound , music6, coins, fireball, hugeball, weapons, extension);
+    if(x==2) ball_w = new ball(1020,ballsound,music2, blocksound , music6, coins, fireball, hugeball, weapons, extension);
+    if(x==3) ball_w = new ball(1098,ballsound,music2, blocksound , music6, coins, fireball, hugeball, weapons, extension);
+    if(x==4) ball_w = new ball(1248,ballsound,music2, blocksound , music6, coins, fireball, hugeball, weapons, extension);
+    if(x==5) ball_w = new ball(1233,ballsound,music2, blocksound , music6, coins, fireball, hugeball, weapons, extension);
     QObject::connect(slider_w, &slider::start, ball_w, &ball::start);
     QObject::connect(slider_w, &slider::fire, ball_w, &ball::activefire);
     QObject::connect(slider_w, &slider::extends, this, &MainWindow::extendslider);
+    QObject::connect(ball_w, &ball::update, this, &MainWindow::update);
     QObject::connect(slider_w, &slider::extends, ball_w, &ball::activeextending);
     ball_w->setPos(592.5, 710);
     scene->addItem(ball_w);
@@ -199,6 +198,15 @@ void MainWindow::start(int x){
     if(x==3)levelsfile.setFileName(":/levels/level3.txt");
     if(x==4)levelsfile.setFileName(":/levels/level4.txt");
     if(x==5)levelsfile.setFileName(":/levels/level5.txt");
+    abilities = new QGraphicsTextItem;
+    abilities->setPlainText(QString("Fireball: ") + QString::number(fireball) +QString(" // ")
+                            + QString("Hugeball: ") + QString::number(hugeball) +QString(" // ")
+                            + QString("Weapons: ") + QString::number(weapons) +QString(" // ")
+                            + QString("Extended Slider: ") + QString::number(extension));
+    abilities->setPos(300,0);
+    abilities->setDefaultTextColor(Qt::white);
+    abilities->setFont(QFont("times", 16));
+    scene->addItem(abilities);
     if (levelsfile.open(QIODevice::ReadOnly))
     {
         QTextStream in(&levelsfile);
@@ -254,6 +262,7 @@ void MainWindow::extendslider(){
     slider_w->setRect(0,0,200,20);
     slider_w->setPos(tempx-50,tempy);
 }
+
 void MainWindow::sale(){
     coins= shop_w->coins;
     hugeball= shop_w->hugeball;
@@ -261,6 +270,17 @@ void MainWindow::sale(){
     extension= shop_w->extension;
     weapons = shop_w-> weapons;
     delete shop_w;
+}
+void MainWindow::update(){
+    coins= ball_w->coins;
+    hugeball= ball_w->hugeball;
+    fireball= ball_w->fball;
+    extension= ball_w->extension;
+    weapons = ball_w-> weapons;
+    abilities->setPlainText(QString("Fireball: ") + QString::number(fireball) +QString(" // ")
+                            + QString("Hugeball: ") + QString::number(hugeball) +QString(" // ")
+                            + QString("Weapons: ") + QString::number(weapons) +QString(" // ")
+                            + QString("Extended Slider: ") + QString::number(extension));
 }
 
 

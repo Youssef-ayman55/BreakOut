@@ -2,7 +2,7 @@
 #include "QKeyEvent"
 #include <QBrush>
 #include <QPen>
-slider::slider() {
+slider::slider(int extension) : extension(extension) {
     setRect(0, 0,100, 20);
     QBrush brush;
     brush.setStyle(Qt::SolidPattern);
@@ -36,8 +36,11 @@ void slider::keyPressEvent(QKeyEvent * event){
         else if(event->key()== Qt::Key_Z) emit fire();
         else if(event->key() == Qt::Key_Shift) v = 2;
         else if(event->key()== Qt::Key_X){
-            if(!slider_extended)emit extends();
-            slider_extended=true;
+            if(!slider_extended && extension>0){
+                emit extends();
+                slider_extended=true;
+            }
+
         }
     }
 }

@@ -38,8 +38,14 @@ private:
     int reflection_cooldown;
 
 public:
-    ball(int no, QMediaPlayer *ball,QAudioOutput *m2, QMediaPlayer *brick , QAudioOutput *m6);
+    ball(int no, QMediaPlayer *ball,QAudioOutput *m2, QMediaPlayer *brick , QAudioOutput *m6
+         ,int coins, int fball, int hugeball, int weapons, int extension);
     void setup();
+    int coins;
+    int fball;
+    int hugeball;
+    int weapons;
+    int extension;
     ~ball();
 public slots:
     void move();
@@ -50,6 +56,7 @@ public slots:
 signals:
     void win();
     void lose();
+    void update();
 };
 
 #endif // BALL_H

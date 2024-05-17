@@ -12,6 +12,7 @@
 #include "settings.h"
 #include <QAudioOutput>
 #include <QMediaPlayer>
+#include <QGraphicsTextItem>
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -38,9 +39,8 @@ private slots:
     void displayshop();
     void on_itemshop_clicked();
 
-public slots:
-    void extendslider();
     public slots:
+    void extendslider();
     void reset();
     void displaywin();
     void displaylose();
@@ -50,7 +50,7 @@ public slots:
     void startlevel4();
     void startlevel5();
     void sale();
-
+    void update();
 private:
     Ui::MainWindow * ui;
     QGraphicsView * view;
@@ -76,5 +76,6 @@ private:
     int hugeball;
     int weapons;
     int extension;
+    QGraphicsTextItem* abilities;
 };
 #endif // MAINWINDOW_H

@@ -8,8 +8,8 @@
 #include "health.h"
 #include "score.h"
 #include <QGraphicsScene>
-ball::ball(int no, QMediaPlayer *ball,QAudioOutput *m2, QMediaPlayer *brick , QAudioOutput *m6) : ballsound(ball), m2(m2),
-    blocksound(brick), m6(m6)  {
+ball::ball(int no, QMediaPlayer *ball,QAudioOutput *m2, QMediaPlayer *brick , QAudioOutput *m6,int coins, int fball, int hugeball, int weapons, int extension) : ballsound(ball), m2(m2),
+    blocksound(brick), m6(m6), coins(coins), fball(fball), hugeball(hugeball), weapons(weapons), extension(extension)   {
     setRect(0,0, 16, 16);
     QBrush brush;
     brush.setStyle(Qt::SolidPattern);
@@ -34,7 +34,6 @@ ball::ball(int no, QMediaPlayer *ball,QAudioOutput *m2, QMediaPlayer *brick , QA
     slider_extended=false;
     number=no;
     reflection_cooldown = 0;
-
 }
 void ball::setup(){
     hl=new health();
@@ -132,6 +131,8 @@ void ball::collide(){
             if(des == number){
                 yv=0;
                 xv=0;
+                coins+=scr->getscore();
+                emit update();
                 emit win();
                 return;
             }
@@ -151,8 +152,16 @@ ball:: ~ball(){
     delete colltime;
 }
 void ball:: activefire(){
-    fireball=true;
+    if(fball && !fireball){
+        fireball=true;
+        fball--;
+        emit update();
+    }
 }
 void ball:: activeextending(){
-    slider_extended=true;
+    if(!slider_extended && extension>0){
+        slider_extended=true;
+        extension--;
+        emit update();
+    }
 }

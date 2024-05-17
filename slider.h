@@ -6,17 +6,17 @@
 #include <QGraphicsRectItem>
 #include <QGraphicsTextItem>
 #include <QKeyEvent>
-#include "ball.h"
 class slider : public QObject, public QGraphicsRectItem
 {
     Q_OBJECT
 public:
-    slider();
+    slider(int extension);
     QTimer * timer;
     bool right;
     bool left;
     bool slider_extended;
     int v;
+    int extension;
 signals:
     void start();
     void fire();

@@ -15,7 +15,8 @@ class ItemShop : public QWidget
 
 public:
     explicit ItemShop(QWidget *parent = nullptr);
-    ItemShop(QAudioOutput * music5, QMediaPlayer * clicksound, int coins, int fireball, int hugeball, int weapons, int extension);
+    ItemShop(QAudioOutput * music5, QMediaPlayer * clicksound,
+            int coins, int fireball, int hugeball, int weapons, int extension);
     ~ItemShop();
     int coins;
     int fireball;
