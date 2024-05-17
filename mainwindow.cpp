@@ -18,19 +18,17 @@ MainWindow::MainWindow(QWidget *parent)
     this->setFixedSize(1200,800);
     music = new QAudioOutput;
     bgsound = new QMediaPlayer();
+    music->setVolume(1);
     bgsound->setSource(QUrl("qrc:/music/Resources/bgsound.mp3"));
+    bgsound->setAudioOutput(music);
     bgsound->play();
     connect(bgsound, &QMediaPlayer::mediaStatusChanged, this, &MainWindow::handleMediaStatusChanged);
     bgsound->play();
-
-    QAudioOutput *music5 = new QAudioOutput;
-    music5->setVolume(100);
+    music5 = new QAudioOutput;
+    music5->setVolume(1);
     clicksound = new QMediaPlayer;
     clicksound->setAudioOutput(music5);
     clicksound->setSource(QUrl("qrc:/music/Resources/click.mp3"));
-
-    connect(ui->settings, &QPushButton::clicked, this, &MainWindow::displaySettingsWindow);
-
     coins=0;
 }
 
@@ -46,6 +44,7 @@ void MainWindow::displaylevels(){
     QObject::connect(levels_w,&levels::level3,this,&MainWindow::startlevel3);
     QObject::connect(levels_w,&levels::level4,this,&MainWindow::startlevel4);
     QObject::connect(levels_w,&levels::level5,this,&MainWindow::startlevel5);
+    QObject::connect(levels_w,&levels::click, clicksound, &QMediaPlayer::play);
     setCentralWidget(levels_w);
 }
 void MainWindow::on_new_game_clicked()
@@ -76,11 +75,6 @@ void MainWindow::startlevel5(){
 
 void MainWindow:: retrylevel1(){
     startlevel1();
-}
-void MainWindow::displaySettingsWindow() {
-    settings_w=new settings;
-    setCentralWidget(settings_w);
-    connect(settings_w, &settings::backToMW, this, &MainWindow::reset);
 }
 
 void MainWindow::displaywin(){
@@ -171,5 +165,14 @@ void MainWindow::handleMediaStatusChanged(QMediaPlayer::MediaStatus status)
         settings_w->bgsound->setPosition(0);
         settings_w->bgsound->play();
     }
+}
+
+
+void MainWindow::on_settings_clicked()
+{
+    clicksound->play();
+    settings_w = new settings(music, bgsound, music5, clicksound);
+    QObject::connect(settings_w, &settings::backToMW, this, &MainWindow::reset);
+    setCentralWidget(settings_w);
 }
 

@@ -26,6 +26,7 @@ private:
     QMediaPlayer *winsound;
     QAudioOutput *music4;
     QMediaPlayer *losesound;
+    QAudioOutput *music5;
     QAudioOutput *music6;
     QMediaPlayer *blocksound;
     QTimer * colltime = new QTimer;

@@ -24,6 +24,7 @@ class MainWindow : public QMainWindow
 public:
     QAudioOutput *music;
     QMediaPlayer *bgsound;
+
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     void handleMediaStatusChanged(QMediaPlayer::MediaStatus status);
@@ -33,9 +34,9 @@ private slots:
     void retrylevel1();
     void displaylevels();
     void start(int x);
-    void displaySettingsWindow();
+    void on_settings_clicked();
 
-    public slots:
+public slots:
     void reset();
     void displaywin();
     void displaylose();

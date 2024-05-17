@@ -32,12 +32,12 @@ ball::ball(int no) {
     fireball=true;
     number=no;
     reflection_cooldown = 0;
-    QAudioOutput *music2 = new QAudioOutput;
+    music2 = new QAudioOutput;
     music2->setVolume(100);
     ballsound = new QMediaPlayer;
     ballsound->setAudioOutput(music2);
     ballsound->setSource(QUrl("qrc:/music/Resources/sliders.mp3"));
-    QAudioOutput *music5 = new QAudioOutput;
+    music5 = new QAudioOutput;
     music5->setVolume(100);
     blocksound = new QMediaPlayer;
     blocksound->setAudioOutput(music5);

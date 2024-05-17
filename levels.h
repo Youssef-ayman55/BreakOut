@@ -23,6 +23,7 @@ signals:
     void level3();
     void level4();
     void level5();
+    void click();
 public slots:
     void on_back_clicked();
 

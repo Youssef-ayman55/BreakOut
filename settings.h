@@ -15,8 +15,10 @@ class settings : public QWidget
 public:
     QAudioOutput *music;
     QMediaPlayer *bgsound;
+    QAudioOutput *music5;
+    QMediaPlayer *clicksound;
     explicit settings(QWidget *parent = nullptr);
-    settings(QAudioOutput *music , QMediaPlayer *bgsound);
+    settings(QAudioOutput *music , QMediaPlayer *bgsound, QAudioOutput * music5, QMediaPlayer * clicksound);
     ~settings();
 
 signals:
@@ -29,6 +31,8 @@ private slots:
     void on_bgslider_valueChanged(int value);
 
     void on_backM_clicked();
+
+    void on_effects_valueChanged(int value);
 
 private:
     Ui::settings *ui;
