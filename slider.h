@@ -10,7 +10,9 @@ class slider : public QObject, public QGraphicsRectItem
 {
     Q_OBJECT
 public:
+    bool paused;
     slider(int extension, int weapons);
+    ~slider();
     QTimer * timer;
     bool right;
     bool left;
@@ -18,6 +20,7 @@ public:
     int weapons;
     int v;
     int extension;
+    QGraphicsTextItem * instructions;
 signals:
     void start();
     void fire();
@@ -25,6 +28,9 @@ signals:
     void huge();
     void laser();
     void increase_score();
+    void back();
+    void pause();
+    void cont();
 
 public slots:
     void keyPressEvent(QKeyEvent * event);

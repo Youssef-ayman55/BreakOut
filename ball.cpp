@@ -16,6 +16,7 @@ ball::ball(int no, QMediaPlayer *ball,QAudioOutput *m2, QMediaPlayer *brick , QA
     brush.setColor(Qt::red);
     setBrush(brush);
     QPen pen;
+    paused = false;
     pen.setWidth(1);
     pen.setColor(Qt::black);
     setPen(pen);
@@ -189,4 +190,18 @@ void ball::deactivatehugeball(){
     int yi = y();
     setRect(0,0,16,16);
     setPos(xi + 8, yi + 8);
+}
+void ball::pause(){
+    if(paused) return;
+    paused = true;
+    tempxv = xv;
+    tempyv = yv;
+    xv = 0;
+    yv = 0;
+}
+void ball::cont(){
+    if(!paused) return;
+    xv = tempxv;
+    yv = tempyv;
+    paused = false;
 }

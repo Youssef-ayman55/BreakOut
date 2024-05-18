@@ -7,6 +7,7 @@ public:
     int score_val;
 public:
     score();
+    ~score();
 public slots:
     void increase_score(int x);
     int getscore();

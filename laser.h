@@ -8,6 +8,7 @@ class Laser: public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
 public:
     Laser();
+    ~Laser();
     QTimer * timer;
 signals:
     void increase_score();

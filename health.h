@@ -7,6 +7,7 @@ private:
     int heal;
 public:
     health();
+    ~health();
 public slots:
     void decrease_health();
     int gethealth();

@@ -20,6 +20,9 @@ private:
     bool slider_extended;
     health * hl;
     bool hball;
+    bool paused;
+    int tempyv;
+    int tempxv;
 
     QAudioOutput *music3;
     QMediaPlayer *winsound;
@@ -58,6 +61,8 @@ public slots:
     void activeextending();
     void activehugeball();
     void deactivatehugeball();
+    void pause();
+    void cont();
 signals:
     void win();
     void lose();

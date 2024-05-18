@@ -18,5 +18,8 @@ int health::gethealth()
 {
     return heal;
 }
+health::~health(){
+
+}
 
 

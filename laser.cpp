@@ -39,3 +39,6 @@ void Laser:: move()
         delete this;
     }
 }
+Laser::~Laser(){
+    delete timer;
+}

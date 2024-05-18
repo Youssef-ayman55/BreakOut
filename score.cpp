@@ -19,3 +19,6 @@ int score::getscore()
 {
     return score_val;
 }
+score::~score(){
+
+}

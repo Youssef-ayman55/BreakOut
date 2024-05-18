@@ -30,7 +30,7 @@ ItemShop::ItemShop(QAudioOutput *music5, QMediaPlayer *clicksound, int coins, in
     ui->hugeballq->setText("Quantity: "+ QString::number(hugeball));
     ui->fireballq->setText("Quantity: "+ QString::number(fireball));
     ui->weaponsq->setText("Quantity: "+ QString::number(weapons));
-    ui->fireball_des->setText("Burn all blocks till hitting \n a slider or a wall.");
+    ui->fireball_des->setText("Burn through all blocks \n until hitting \n a slider or a wall.");
     ui->hugeball_des->setText("The ball becomes double its \n size for 10 seconds.");
     ui->extension_des->setText("The slider becomes double \n its width for the whole \n game.");
     ui->weapons_des->setText("One bullet can destory \n blocks and walls.");

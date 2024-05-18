@@ -13,6 +13,7 @@
 #include <QFile>
 #include <QGraphicsTextItem>
 #include <QFont>
+#include <QFileInfo>
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -45,8 +46,10 @@ MainWindow::MainWindow(QWidget *parent)
     blocksound = new QMediaPlayer;
     blocksound->setAudioOutput(music6);
     blocksound->setSource(QUrl("qrc:/music/Resources/blockh.mp3"));
-    QFile save("save.txt");
     QVector<int> input;
+    QFileInfo fInfo("save.txt");
+    if (!fInfo.exists()){
+        QFile save("save.txt");
     if (save.open(QIODevice::ReadOnly))
     {
         QTextStream in(&save);
@@ -66,9 +69,10 @@ MainWindow::MainWindow(QWidget *parent)
             hugeball = input[4];
             extension = input[5];
         }
+    }
         else{
             current_level = 1;
-            coins = 3000;
+            coins = 2000;
             fireball = 0;
             weapons = 0;
             hugeball = 0;
@@ -182,6 +186,7 @@ void MainWindow::start(int x){
     slider_w = new slider(extension, weapons);
     scene->setSceneRect(0,0,1200,800);
     scene->addItem(slider_w);
+    scene->addItem(slider_w->instructions);
     slider_w->setPos(550,750);
     view->setFixedSize(1200,800);
     if(x==1) ball_w = new ball(900,ballsound,music2, blocksound , music6, coins, fireball, hugeball, weapons, extension, x);
@@ -191,7 +196,17 @@ void MainWindow::start(int x){
     if(x==5) ball_w = new ball(1233,ballsound,music2, blocksound , music6, coins, fireball, hugeball, weapons, extension, x);
     //ball_w = new ball(2,ballsound,music2, blocksound , music6, coins, fireball, hugeball, weapons, extension, x);
     QObject::connect(slider_w, &slider::start, ball_w, &ball::start);
+    QObject::connect(slider_w, &slider::back, this, [=](){
+        delete ball_w;
+        delete slider_w;
+        delete view;
+        delete scene;
+        reset();
+        displaylevels();
+    });
     QObject::connect(slider_w, &slider::fire, ball_w, &ball::activefire);
+    QObject::connect(slider_w, &slider::pause, ball_w, &ball::pause);
+    QObject::connect(slider_w, &slider::cont, ball_w, &ball::cont);
     QObject::connect(slider_w, &slider::huge, ball_w, &ball::activehugeball);
     QObject::connect(slider_w, &slider::extends, this, &MainWindow::extendslider);
     QObject::connect(ball_w, &ball::update, this, &MainWindow::update);
