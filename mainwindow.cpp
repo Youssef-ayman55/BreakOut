@@ -48,7 +48,7 @@ MainWindow::MainWindow(QWidget *parent)
     blocksound->setSource(QUrl("qrc:/music/Resources/blockh.mp3"));
     QVector<int> input;
     QFileInfo fInfo("save.txt");
-    if (!fInfo.exists()){
+    if (fInfo.exists()){
         QFile save("save.txt");
     if (save.open(QIODevice::ReadOnly))
     {
@@ -70,14 +70,14 @@ MainWindow::MainWindow(QWidget *parent)
             extension = input[5];
         }
     }
-        else{
-            current_level = 1;
-            coins = 2000;
-            fireball = 0;
-            weapons = 0;
-            hugeball = 0;
-            extension = 0;
-        }
+    }
+    else{
+        current_level = 1;
+        coins = 2000;
+        fireball = 0;
+        weapons = 0;
+        hugeball = 0;
+        extension = 0;
     }
 }
 
