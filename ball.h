@@ -38,7 +38,7 @@ private:
 
 public:
     ball(int no, QMediaPlayer *ball,QAudioOutput *m2, QMediaPlayer *brick , QAudioOutput *m6
-         ,int coins, int fball, int hugeball, int weapons, int extension);
+         ,int coins, int fball, int hugeball, int weapons, int extension, int level);
     void setup();
     int coins;
     int fball;
@@ -46,6 +46,7 @@ public:
     int weapons;
     int extension;
     int number;
+    int level;
     score * scr;
     int des;
     ~ball();

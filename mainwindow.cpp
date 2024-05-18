@@ -94,7 +94,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 void MainWindow::displaylevels(){
-    levels_w = new levels;
+    levels_w = new levels(current_level);
     QObject::connect(levels_w,&levels::back,this,&MainWindow::reset);
     QObject::connect(levels_w,&levels::level1,this,&MainWindow::startlevel1);
     QObject::connect(levels_w,&levels::level2,this,&MainWindow::startlevel2);
@@ -131,15 +131,19 @@ void MainWindow::startlevel1(){
     start(1);
 }
 void MainWindow::startlevel2(){
+    if(current_level >= 2)
     start(2);
 }
 void MainWindow::startlevel3(){
+    if(current_level >= 3)
     start(3);
 }
 void MainWindow::startlevel4(){
+    if(current_level >=4)
     start(4);
 }
 void MainWindow::startlevel5(){
+    if(current_level >= 5)
     start(5);
 }
 
@@ -148,6 +152,7 @@ void MainWindow:: retrylevel1(){
 }
 
 void MainWindow::displaywin(){
+    if(ball_w->level == current_level && current_level < 5) current_level++;
     delete ball_w;
     delete slider_w;
     delete view;
@@ -155,6 +160,7 @@ void MainWindow::displaywin(){
     win_w = new win;
     setCentralWidget(win_w);
     QObject::connect(win_w,&win::backtolevels,this,&MainWindow::displaylevels);
+    QObject::connect(win_w, &win::next, this, [=](){start(current_level);});
     win_w->winsound->play();
 }
 void MainWindow::displaylose(){
@@ -166,6 +172,7 @@ void MainWindow::displaylose(){
     setCentralWidget(lose_w);
     QObject::connect(lose_w,&lose::backtolevels,this,&MainWindow::displaylevels);
     QObject::connect(lose_w,&lose::retry,this,&MainWindow::retrylevel1);
+    current_level = 1;
     lose_w->losesound->play();
 
 }
@@ -177,11 +184,12 @@ void MainWindow::start(int x){
     scene->addItem(slider_w);
     slider_w->setPos(550,750);
     view->setFixedSize(1200,800);
-    if(x==1) ball_w = new ball(900,ballsound,music2, blocksound , music6, coins, fireball, hugeball, weapons, extension);
-    if(x==2) ball_w = new ball(1020,ballsound,music2, blocksound , music6, coins, fireball, hugeball, weapons, extension);
-    if(x==3) ball_w = new ball(1098,ballsound,music2, blocksound , music6, coins, fireball, hugeball, weapons, extension);
-    if(x==4) ball_w = new ball(1248,ballsound,music2, blocksound , music6, coins, fireball, hugeball, weapons, extension);
-    if(x==5) ball_w = new ball(1233,ballsound,music2, blocksound , music6, coins, fireball, hugeball, weapons, extension);
+    if(x==1) ball_w = new ball(900,ballsound,music2, blocksound , music6, coins, fireball, hugeball, weapons, extension, x);
+    if(x==2) ball_w = new ball(1020,ballsound,music2, blocksound , music6, coins, fireball, hugeball, weapons, extension, x);
+    if(x==3) ball_w = new ball(1098,ballsound,music2, blocksound , music6, coins, fireball, hugeball, weapons, extension, x);
+    if(x==4) ball_w = new ball(1248,ballsound,music2, blocksound , music6, coins, fireball, hugeball, weapons, extension, x);
+    if(x==5) ball_w = new ball(1233,ballsound,music2, blocksound , music6, coins, fireball, hugeball, weapons, extension, x);
+    //ball_w = new ball(2,ballsound,music2, blocksound , music6, coins, fireball, hugeball, weapons, extension, x);
     QObject::connect(slider_w, &slider::start, ball_w, &ball::start);
     QObject::connect(slider_w, &slider::fire, ball_w, &ball::activefire);
     QObject::connect(slider_w, &slider::huge, ball_w, &ball::activehugeball);

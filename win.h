@@ -19,6 +19,7 @@ public:
     QMediaPlayer *winsound;
 signals:
     void backtolevels();
+    void next();
 
 private slots:
     void on_back_2_clicked();

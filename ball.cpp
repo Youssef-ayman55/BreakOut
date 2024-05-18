@@ -8,8 +8,8 @@
 #include "health.h"
 #include "score.h"
 #include <QGraphicsScene>
-ball::ball(int no, QMediaPlayer *ball,QAudioOutput *m2, QMediaPlayer *brick , QAudioOutput *m6,int coins, int fball, int hugeball, int weapons, int extension) : ballsound(ball), m2(m2),
-    blocksound(brick), m6(m6), coins(coins), fball(fball), hugeball(hugeball), weapons(weapons), extension(extension)   {
+ball::ball(int no, QMediaPlayer *ball,QAudioOutput *m2, QMediaPlayer *brick , QAudioOutput *m6,int coins, int fball, int hugeball, int weapons, int extension, int level) : ballsound(ball), m2(m2),
+    blocksound(brick), m6(m6), coins(coins), fball(fball), hugeball(hugeball), weapons(weapons), extension(extension), level(level)   {
     setRect(0,0, 16, 16);
     QBrush brush;
     brush.setStyle(Qt::SolidPattern);

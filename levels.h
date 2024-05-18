@@ -14,6 +14,8 @@ class levels : public QWidget
 
 public:
     explicit levels(QWidget *parent = nullptr);
+    explicit levels(int current_len);
+    int current_level;
     QMainWindow * mainscreen;
     ~levels();
 signals:

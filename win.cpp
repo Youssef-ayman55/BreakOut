@@ -35,7 +35,7 @@ void win::on_back_clicked()
 {
     clicksound->play();
     //temporary
-    emit backtolevels();
+    emit next();
     delete this;
 }
 
