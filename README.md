@@ -8,4 +8,4 @@ This is a C++ implementation of the BreakOut game. The implementation has 5 diff
 ![image](https://github.com/user-attachments/assets/d6c1efbd-afe6-43d2-9a0c-46911a5f929b)
 
 ## Building the project
-To build the project, you need to install [Qt](https://www.qt.io/) 6.7 or later with the multimedia library on your machine.
+To build the project, you need to install [Qt](https://www.qt.io/product/framework) 6.7 or later with the multimedia library on your machine.
